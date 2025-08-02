@@ -1,0 +1,5 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="400" fill="#ecfdf5"/>
+  <text x="400" y="200" font-family="Arial, sans-serif" font-size="24" fill="#059669" text-anchor="middle">Blog Thumbnail 2</text>
+  <text x="400" y="230" font-family="Arial, sans-serif" font-size="16" fill="#10b981" text-anchor="middle">SEO Best Practices</text>
+</svg> 

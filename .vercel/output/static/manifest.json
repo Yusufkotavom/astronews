@@ -1,0 +1,117 @@
+{
+  "name": "Kotacom - Jasa Pembuatan Website Bekasi",
+  "short_name": "Kotacom",
+  "description": "Jasa pembuatan website profesional di Bekasi dengan desain modern, responsif, dan SEO-friendly",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "id",
+  "categories": ["business", "productivity", "utilities"],
+  "icons": [
+    {
+      "src": "/android-icon-36x36.png",
+      "sizes": "36x36",
+      "type": "image/png",
+      "density": "0.75"
+    },
+    {
+      "src": "/android-icon-48x48.png",
+      "sizes": "48x48",
+      "type": "image/png",
+      "density": "1.0"
+    },
+    {
+      "src": "/android-icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "density": "1.5"
+    },
+    {
+      "src": "/android-icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "density": "2.0"
+    },
+    {
+      "src": "/android-icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "density": "3.0"
+    },
+    {
+      "src": "/android-icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "density": "4.0"
+    },
+    {
+      "src": "/apple-icon-180.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "apple touch"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Kotacom Website Development Services"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Kotacom Mobile View"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Hubungi Kami",
+      "short_name": "Kontak",
+      "description": "Hubungi tim Kotacom untuk konsultasi website",
+      "url": "/#contact",
+      "icons": [
+        {
+          "src": "/icon-contact.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Portfolio",
+      "short_name": "Portfolio",
+      "description": "Lihat portfolio website yang telah kami buat",
+      "url": "/#portfolio",
+      "icons": [
+        {
+          "src": "/icon-portfolio.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Paket Harga",
+      "short_name": "Harga",
+      "description": "Lihat paket harga pembuatan website",
+      "url": "/#pricing",
+      "icons": [
+        {
+          "src": "/icon-pricing.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
