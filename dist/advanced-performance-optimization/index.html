@@ -1,7 +1,7 @@
-<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Master advanced performance optimization strategies including lazy loading, code splitting, caching, and Core Web Vitals improvements."><meta name="author" content="Sarah Chen"><meta name="generator" content="Astro"><title>Advanced Performance Optimization Techniques for Modern Web Apps | Kotacom Blog</title><link rel="canonical" href="https://www.kotacom.id/advanced-performance-optimization/"><meta name="robots" content="index, follow"><meta property="article:published_time" content="2024-01-10"><meta property="article:modified_time" content="2024-01-22"><meta property="article:author" content="Sarah Chen"><meta property="article:section" content="Performance"><meta property="article:tag" content="Performance"><meta property="article:tag" content="Optimization"><meta property="article:tag" content="Core Web Vitals"><meta property="article:tag" content="JavaScript"><meta property="article:tag" content="Caching"><meta property="og:image" content="/images/blog/performance-optimization.jpg"><meta property="og:image:alt" content="Performance monitoring dashboard showing various web metrics and optimization charts"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Advanced Performance Optimization Techniques for Modern Web Apps","description":"Master advanced performance optimization strategies including lazy loading, code splitting, caching, and Core Web Vitals improvements.","author":{"@type":"Person","name":"Sarah Chen","image":"https://www.kotacom.id/images/authors/sarah-chen.jpg","description":"Performance Engineer at Google with expertise in web optimization and Core Web Vitals"},"publisher":{"@type":"Organization","name":"Kotacom","logo":{"@type":"ImageObject","url":"https://www.kotacom.id/logo-full.svg"}},"datePublished":"2024-01-10","dateModified":"2024-01-22","image":"https://www.kotacom.id/images/blog/performance-optimization.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.kotacom.id/advanced-performance-optimization/"},"wordCount":16,"timeRequired":"PT12M","keywords":"web performance, optimization, core web vitals, lazy loading, code splitting, caching strategies","articleSection":"Performance","inLanguage":"en","isPartOf":{"@type":"BlogSeries","name":"Web Development 2024","position":2}}</script><!-- Theme script to avoid FOUC --><script type="module">const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;"dark"===e||!e&&t?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark");</script><!-- Optimized font loading --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- Load Google Fonts with optimization --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><!-- Tailwind CSS is handled by @astrojs/tailwind integration --><!-- Flowbite is now handled by the Tailwind plugin for better performance --><!-- Open Graph / Facebook --><meta property="og:type" content="post"><meta property="og:url" content="https://www.kotacom.id/advanced-performance-optimization/"><meta property="og:title" content="Advanced Performance Optimization Techniques for Modern Web Apps | Kotacom Blog"><meta property="og:description" content="Master advanced performance optimization strategies including lazy loading, code splitting, caching, and Core Web Vitals improvements."><meta property="og:image" content="/images/blog/performance-optimization.jpg"><meta property="og:site_name" content="Kotacom"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://www.kotacom.id/advanced-performance-optimization/"><meta property="twitter:title" content="Advanced Performance Optimization Techniques for Modern Web Apps | Kotacom Blog"><meta property="twitter:description" content="Master advanced performance optimization strategies including lazy loading, code splitting, caching, and Core Web Vitals improvements."><meta property="twitter:image" content="/images/blog/performance-optimization.jpg"><link rel="stylesheet" href="/assets/_slug_.CjPMHqjf.css">
+<!DOCTYPE html><html lang="en" class="scroll-smooth"> <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Master advanced performance optimization strategies including lazy loading, code splitting, caching, and Core Web Vitals improvements."><meta name="author" content="Sarah Chen"><meta name="generator" content="Astro"><title>Advanced Performance Optimization Techniques for Modern Web Apps | Kotacom Blog</title><link rel="canonical" href="https://www.kotacom.id/advanced-performance-optimization/"><meta name="robots" content="index, follow"><meta property="article:published_time" content="2024-01-10"><meta property="article:modified_time" content="2024-01-22"><meta property="article:author" content="Sarah Chen"><meta property="article:section" content="Performance"><meta property="article:tag" content="Performance"><meta property="article:tag" content="Optimization"><meta property="article:tag" content="Core Web Vitals"><meta property="article:tag" content="JavaScript"><meta property="article:tag" content="Caching"><meta property="og:image" content="/images/blog/performance-optimization.jpg"><meta property="og:image:alt" content="Performance monitoring dashboard showing various web metrics and optimization charts"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Advanced Performance Optimization Techniques for Modern Web Apps","description":"Master advanced performance optimization strategies including lazy loading, code splitting, caching, and Core Web Vitals improvements.","author":{"@type":"Person","name":"Sarah Chen","image":"https://www.kotacom.id/images/authors/sarah-chen.jpg","description":"Performance Engineer at Google with expertise in web optimization and Core Web Vitals"},"publisher":{"@type":"Organization","name":"Kotacom","logo":{"@type":"ImageObject","url":"https://www.kotacom.id/logo-full.svg"}},"datePublished":"2024-01-10","dateModified":"2024-01-22","image":"https://www.kotacom.id/images/blog/performance-optimization.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.kotacom.id/advanced-performance-optimization/"},"wordCount":16,"timeRequired":"PT12M","keywords":"web performance, optimization, core web vitals, lazy loading, code splitting, caching strategies","articleSection":"Performance","inLanguage":"en","isPartOf":{"@type":"BlogSeries","name":"Web Development 2024","position":2}}</script><!-- Theme script to avoid FOUC --><script type="module">const e=localStorage.getItem("theme"),t=window.matchMedia("(prefers-color-scheme: dark)").matches;"dark"===e||!e&&t?document.documentElement.classList.add("dark"):document.documentElement.classList.remove("dark");</script><!-- Optimized font loading --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><!-- Load Google Fonts with optimization --><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><!-- Tailwind CSS is handled by @astrojs/tailwind integration --><!-- Flowbite is now handled by the Tailwind plugin for better performance --><!-- Open Graph / Facebook --><meta property="og:type" content="post"><meta property="og:url" content="https://www.kotacom.id/advanced-performance-optimization/"><meta property="og:title" content="Advanced Performance Optimization Techniques for Modern Web Apps | Kotacom Blog"><meta property="og:description" content="Master advanced performance optimization strategies including lazy loading, code splitting, caching, and Core Web Vitals improvements."><meta property="og:image" content="/images/blog/performance-optimization.jpg"><meta property="og:site_name" content="Kotacom"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://www.kotacom.id/advanced-performance-optimization/"><meta property="twitter:title" content="Advanced Performance Optimization Techniques for Modern Web Apps | Kotacom Blog"><meta property="twitter:description" content="Master advanced performance optimization strategies including lazy loading, code splitting, caching, and Core Web Vitals improvements."><meta property="twitter:image" content="/images/blog/performance-optimization.jpg"><link rel="stylesheet" href="/assets/_slug_.Ck_pjWlX.css">
 <style>.line-clamp-2[data-astro-cid-y73j7iaq]{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.line-clamp-2[data-astro-cid-bvzihdzo]{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-</style><script>!(function(w,p,f,c){if(!window.crossOriginIsolated && !navigator.serviceWorker) return;c=w[p]=Object.assign(w[p]||{},{"lib":"/~partytown/","debug":false});c[f]=(c[f]||[]).concat(["dataLayer.push"])})(window,'partytown','forward');/* Partytown 0.11.2 - MIT QwikDev */
+</style>
+<link rel="stylesheet" href="/assets/_slug_.D5mBz9nZ.css"><script>!(function(w,p,f,c){if(!window.crossOriginIsolated && !navigator.serviceWorker) return;c=w[p]=Object.assign(w[p]||{},{"lib":"/~partytown/","debug":false});c[f]=(c[f]||[]).concat(["dataLayer.push"])})(window,'partytown','forward');/* Partytown 0.11.2 - MIT QwikDev */
 const t={preserveBehavior:!1},e=e=>{if("string"==typeof e)return[e,t];const[n,r=t]=e;return[n,{...t,...r}]},n=Object.freeze((t=>{const e=new Set;let n=[];do{Object.getOwnPropertyNames(n).forEach((t=>{"function"==typeof n[t]&&e.add(t)}))}while((n=Object.getPrototypeOf(n))!==Object.prototype);return Array.from(e)})());!function(t,r,o,i,a,s,c,l,d,p,u=t,f){function h(){f||(f=1,"/"==(c=(s.lib||"/~partytown/")+(s.debug?"debug/":""))[0]&&(d=r.querySelectorAll('script[type="text/partytown"]'),i!=t?i.dispatchEvent(new CustomEvent("pt1",{detail:t})):(l=setTimeout(v,(null==s?void 0:s.fallbackTimeout)||1e4),r.addEventListener("pt0",w),a?y(1):o.serviceWorker?o.serviceWorker.register(c+(s.swPath||"partytown-sw.js"),{scope:c}).then((function(t){t.active?y():t.installing&&t.installing.addEventListener("statechange",(function(t){"activated"==t.target.state&&y()}))}),console.error):v())))}function y(e){p=r.createElement(e?"script":"iframe"),t._pttab=Date.now(),e||(p.style.display="block",p.style.width="0",p.style.height="0",p.style.border="0",p.style.visibility="hidden",p.setAttribute("aria-hidden",!0)),p.src=c+"partytown-"+(e?"atomics.js?v=0.11.2":"sandbox-sw.html?"+t._pttab),r.querySelector(s.sandboxParent||"body").appendChild(p)}function v(n,o){for(w(),i==t&&(s.forward||[]).map((function(n){const[r]=e(n);delete t[r.split(".")[0]]})),n=0;n<d.length;n++)(o=r.createElement("script")).innerHTML=d[n].innerHTML,o.nonce=s.nonce,r.head.appendChild(o);p&&p.parentNode.removeChild(p)}function w(){clearTimeout(l)}s=t.partytown||{},i==t&&(s.forward||[]).map((function(r){const[o,{preserveBehavior:i}]=e(r);u=t,o.split(".").map((function(e,r,o){var a;u=u[o[r]]=r+1<o.length?u[o[r]]||(a=o[r+1],n.includes(a)?[]:{}):(()=>{let e=null;if(i){const{methodOrProperty:n,thisObject:r}=((t,e)=>{let n=t;for(let t=0;t<e.length-1;t+=1)n=n[e[t]];return{thisObject:n,methodOrProperty:e.length>0?n[e[e.length-1]]:void 0}})(t,o);"function"==typeof n&&(e=(...t)=>n.apply(r,...t))}return function(){let n;return e&&(n=e(arguments)),(t._ptf=t._ptf||[]).push(o,arguments),n}})()}))})),"complete"==r.readyState?h():(t.addEventListener("DOMContentLoaded",h),t.addEventListener("load",h))}(window,document,navigator,top,window.crossOriginIsolated);;(e=>{e.addEventListener("astro:before-swap",e=>{let r=document.body.querySelector("iframe[src*='/~partytown/']");if(r)e.newDocument.body.append(r)})})(document);</script></head> <body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white"> <!-- Skip to main content link for accessibility --><a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded-md z-50">
 Skip to main content
 </a> <header> <!-- Main Navbar --> <nav id="mainNavbar" data-sticky="false" class="bg-white/95 backdrop-blur-sm dark:bg-gray-900/95 border-b border-gray-200 dark:border-gray-700 py-3 fixed w-full z-40 top-0 start-0 transition-all duration-300 "> <div class="flex items-center justify-between mx-auto max-w-screen-xl px-4"> <!-- Left Side - Logo and Mobile Menu Button --> <div class="flex items-center space-x-4"> <!-- Mobile Menu Button (Top Left) --> <button id="mobile-menu-button" type="button" aria-label="Open main menu" aria-controls="mobile-menu-full" aria-expanded="false" class="lg:hidden inline-flex items-center p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200"> <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> </svg> </button> <!-- Logo --> <a href="/" class="flex items-center"> <img src="/logo-full.svg" class="h-8 w-auto dark:hidden" alt="Kotacom Logo"> <img src="/logo-full-dark.svg" class="h-8 w-auto hidden dark:block" alt="Kotacom Logo"> </a> </div> <!-- Center - Desktop Navigation --> <div class="hidden lg:flex items-center space-x-8"> <div class="relative group"> <a href="/" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"> Home </a> <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200 dark:border-gray-700"> <div class="py-2"> <a href="/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Dashboard </a><a href="/features" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Features </a><a href="/showcase" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Showcase </a> </div> </div> </div><div class="relative group"> <a href="/services" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"> Services </a> <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200 dark:border-gray-700"> <div class="py-2"> <a href="/services" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> All Services </a><a href="/portfolio" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Portfolio </a><a href="/services/website" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> jasa pembuatan website </a><a href="/services/website" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> jasa pembuatan website </a><a href="/services/software" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Jasa Pembuatan Software </a> </div> </div> </div><div class="relative group"> <a href="/blog" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"> Blog </a> <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200 dark:border-gray-700"> <div class="py-2"> <a href="/blog" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> All Posts </a><a href="/blog/featured" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Featured Posts </a> </div> </div> </div><div class="relative group"> <a href="/pricing" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"> Pricing </a> <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200 dark:border-gray-700"> <div class="py-2"> <a href="/pricing/" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Website Packages </a><a href="/pricing/ecommerce" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> E-Commerce Plans </a><a href="/pricing/maintenance" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Maintenance Plans </a><a href="/pricing/custom" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Custom Quote </a> </div> </div> </div><div class="relative group"> <a href="/about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200"> About </a> <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200 dark:border-gray-700"> <div class="py-2"> <a href="/contact" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Contact </a><a href="/contact/support" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Technical Support </a><a href="/contact/quote" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Request Quote </a><a href="/contact/location" class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700"> Our Location </a> </div> </div> </div> </div> <!-- Right Side - Desktop Actions --> <div class="hidden lg:flex items-center space-x-4"> <!-- Search Button --> <button id="searchToggle" type="button" aria-label="Search articles" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors duration-200"> <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path> </svg> </button> <!-- Theme Toggle Button --> <button id="themeToggle" type="button" aria-label="Toggle dark mode" class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors duration-200"> <svg id="themeToggleDarkIcon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"> <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path> </svg> <svg id="themeToggleLightIcon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"> <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path> </svg> </button> <!-- WhatsApp Button - Desktop --> <a href="https://wa.me/085799520350?text=Halo!%20Saya%20tertarik%20dengan%20jasa%20pembuatan%20website%20Anda." target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-300 dark:focus:ring-green-900 transition-colors duration-200"> <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24"> <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"></path> </svg>
@@ -23,515 +23,528 @@ Featured
 </span> <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-300" data-astro-cid-bvzihdzo> <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-bvzihdzo> <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd" data-astro-cid-bvzihdzo></path> </svg> 16 words
 </span> </div> <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight" data-astro-cid-bvzihdzo> Advanced Performance Optimization Techniques for Modern Web Apps </h1> <!-- Author Section --> <div class="flex items-start space-x-4 mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg" data-astro-cid-bvzihdzo> <img src="/images/authors/sarah-chen.jpg" alt="Sarah Chen" class="w-12 h-12 rounded-full object-cover" loading="lazy" data-astro-cid-bvzihdzo> <div class="flex-1" data-astro-cid-bvzihdzo> <div class="flex items-center space-x-2 mb-1" data-astro-cid-bvzihdzo> <h3 class="font-semibold text-gray-900 dark:text-white" data-astro-cid-bvzihdzo> Sarah Chen </h3> <span class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-bvzihdzo>•</span> <time class="text-sm text-gray-500 dark:text-gray-400" data-astro-cid-bvzihdzo> Jan 10, 2024 </time> </div> <p class="text-sm text-gray-600 dark:text-gray-400 mb-2" data-astro-cid-bvzihdzo> Performance Engineer at Google with expertise in web optimization and Core Web Vitals </p> <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400" data-astro-cid-bvzihdzo> <div class="flex items-center space-x-1" data-astro-cid-bvzihdzo> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-bvzihdzo> <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd" data-astro-cid-bvzihdzo></path> </svg> <span data-astro-cid-bvzihdzo>12 min read</span> </div> <div class="flex items-center space-x-1" data-astro-cid-bvzihdzo> <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-bvzihdzo> <path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd" data-astro-cid-bvzihdzo></path> </svg> <span data-astro-cid-bvzihdzo>Updated Jan 22, 2024</span> </div> </div> </div> </div> </div> <!-- Featured Image --> <div class="mb-8" data-astro-cid-bvzihdzo> <img src="/images/blog/performance-optimization.jpg" alt="Performance monitoring dashboard showing various web metrics and optimization charts" class="w-full h-64 md:h-96 object-cover rounded-lg shadow-lg" loading="eager" decoding="async" data-astro-cid-bvzihdzo> </div> <!-- Table of Contents (if enabled) --> <div class="mb-8 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700" data-astro-cid-bvzihdzo> <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center" data-astro-cid-bvzihdzo> <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" data-astro-cid-bvzihdzo> <path d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 16a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" data-astro-cid-bvzihdzo></path> </svg>
 Table of Contents
-</h3> <div id="table-of-contents" class="prose prose-sm dark:prose-invert" data-astro-cid-bvzihdzo> <!-- Table of contents will be generated by JavaScript --> </div> </div> <!-- Article Content --> <div class="prose prose-lg dark:prose-invert max-w-none mb-12" id="article-content" data-astro-cid-bvzihdzo>  <h1 id="advanced-performance-optimization-techniques-for-modern-web-apps">Advanced Performance Optimization Techniques for Modern Web Apps</h1>
+</h3> <div id="table-of-contents" class="prose prose-sm dark:prose-invert" data-astro-cid-bvzihdzo> <!-- Table of contents will be generated by JavaScript --> </div> </div> <!-- Article Content --> <div class="prose prose-lg dark:prose-invert max-w-none mb-12 prose-headings:scroll-mt-20 prose-a:text-blue-600 dark:prose-a:text-blue-400 prose-a:no-underline hover:prose-a:underline prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-code:text-pink-600 dark:prose-code:text-pink-400 prose-code:bg-gray-100 dark:prose-code:bg-gray-800 prose-code:px-1 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-blockquote:border-l-blue-500 prose-blockquote:bg-blue-50 dark:prose-blockquote:bg-blue-900/20 prose-blockquote:px-4 prose-blockquote:py-2 prose-blockquote:rounded-r prose-img:rounded-lg prose-img:shadow-lg" id="article-content" data-astro-cid-bvzihdzo>  <h1 id="advanced-performance-optimization-techniques-for-modern-web-apps">Advanced Performance Optimization Techniques for Modern Web Apps</h1>
 <p>Performance optimization is crucial for modern web applications. Users expect fast, responsive experiences, and search engines reward well-optimized sites. This comprehensive guide covers advanced techniques to dramatically improve your web app’s performance.</p>
 <h2 id="understanding-core-web-vitals">Understanding Core Web Vitals</h2>
 <p>Core Web Vitals are Google’s set of metrics that measure real-world user experience for loading performance, interactivity, and visual stability.</p>
 <h3 id="largest-contentful-paint-lcp">Largest Contentful Paint (LCP)</h3>
 <p>LCP measures loading performance. To provide a good user experience, LCP should occur within 2.5 seconds.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Measuring LCP</span></span>
-<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> measureLCP</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">  new</span><span style="color:#B392F0"> PerformanceObserver</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">entryList</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> entries</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> entryList.</span><span style="color:#B392F0">getEntries</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> lastEntry</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> entries[entries.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> -</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">];</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span></span>
-<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'LCP:'</span><span style="color:#E1E4E8">, lastEntry.startTime);</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span></span>
-<span class="line"><span style="color:#6A737D">    // Send to analytics</span></span>
-<span class="line"><span style="color:#B392F0">    gtag</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'event'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'LCP'</span><span style="color:#E1E4E8">, {</span></span>
-<span class="line"><span style="color:#E1E4E8">      value: Math.</span><span style="color:#B392F0">round</span><span style="color:#E1E4E8">(lastEntry.startTime),</span></span>
-<span class="line"><span style="color:#E1E4E8">      event_category: </span><span style="color:#9ECBFF">'Web Vitals'</span></span>
-<span class="line"><span style="color:#E1E4E8">    });</span></span>
-<span class="line"><span style="color:#E1E4E8">  }).</span><span style="color:#B392F0">observe</span><span style="color:#E1E4E8">({ entryTypes: [</span><span style="color:#9ECBFF">'largest-contentful-paint'</span><span style="color:#E1E4E8">] });</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Measuring LCP</span>
+<span class="token keyword">function</span> <span class="token function">measureLCP</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">new</span> <span class="token class-name">PerformanceObserver</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">entryList</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> entries <span class="token operator">=</span> entryList<span class="token punctuation">.</span><span class="token function">getEntries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> lastEntry <span class="token operator">=</span> entries<span class="token punctuation">[</span>entries<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'LCP:'</span><span class="token punctuation">,</span> lastEntry<span class="token punctuation">.</span>startTime<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Send to analytics</span>
+    <span class="token function">gtag</span><span class="token punctuation">(</span><span class="token string">'event'</span><span class="token punctuation">,</span> <span class="token string">'LCP'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">value</span><span class="token operator">:</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>lastEntry<span class="token punctuation">.</span>startTime<span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">event_category</span><span class="token operator">:</span> <span class="token string">'Web Vitals'</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">entryTypes</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'largest-contentful-paint'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="first-input-delay-fid">First Input Delay (FID)</h3>
 <p>FID measures interactivity. Pages should have an FID of 100 milliseconds or less.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Measuring FID</span></span>
-<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> measureFID</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">  new</span><span style="color:#B392F0"> PerformanceObserver</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">entryList</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> entry</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> entryList.</span><span style="color:#B392F0">getEntries</span><span style="color:#E1E4E8">()) {</span></span>
-<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> FID</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> entry.processingStart </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> entry.startTime;</span></span>
-<span class="line"><span style="color:#E1E4E8">      </span></span>
-<span class="line"><span style="color:#E1E4E8">      console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'FID:'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">FID</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">      </span></span>
-<span class="line"><span style="color:#B392F0">      gtag</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'event'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'FID'</span><span style="color:#E1E4E8">, {</span></span>
-<span class="line"><span style="color:#E1E4E8">        value: Math.</span><span style="color:#B392F0">round</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">FID</span><span style="color:#E1E4E8">),</span></span>
-<span class="line"><span style="color:#E1E4E8">        event_category: </span><span style="color:#9ECBFF">'Web Vitals'</span></span>
-<span class="line"><span style="color:#E1E4E8">      });</span></span>
-<span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#E1E4E8">  }).</span><span style="color:#B392F0">observe</span><span style="color:#E1E4E8">({ entryTypes: [</span><span style="color:#9ECBFF">'first-input'</span><span style="color:#E1E4E8">] });</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Measuring FID</span>
+<span class="token keyword">function</span> <span class="token function">measureFID</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">new</span> <span class="token class-name">PerformanceObserver</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">entryList</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> entry <span class="token keyword">of</span> entryList<span class="token punctuation">.</span><span class="token function">getEntries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> <span class="token constant">FID</span> <span class="token operator">=</span> entry<span class="token punctuation">.</span>processingStart <span class="token operator">-</span> entry<span class="token punctuation">.</span>startTime<span class="token punctuation">;</span>
+      
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'FID:'</span><span class="token punctuation">,</span> <span class="token constant">FID</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      
+      <span class="token function">gtag</span><span class="token punctuation">(</span><span class="token string">'event'</span><span class="token punctuation">,</span> <span class="token string">'FID'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">value</span><span class="token operator">:</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span><span class="token constant">FID</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">event_category</span><span class="token operator">:</span> <span class="token string">'Web Vitals'</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">entryTypes</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'first-input'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="cumulative-layout-shift-cls">Cumulative Layout Shift (CLS)</h3>
 <p>CLS measures visual stability. Pages should maintain a CLS of 0.1 or less.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Measuring CLS</span></span>
-<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> measureCLS</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> clsValue </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 0</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> clsEntries </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [];</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">  new</span><span style="color:#B392F0"> PerformanceObserver</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">entryList</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">    for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> entry</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> entryList.</span><span style="color:#B392F0">getEntries</span><span style="color:#E1E4E8">()) {</span></span>
-<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">entry.hadRecentInput) {</span></span>
-<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> firstSessionEntry</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> clsEntries[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">];</span></span>
-<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> lastSessionEntry</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> clsEntries[clsEntries.</span><span style="color:#79B8FF">length</span><span style="color:#F97583"> -</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">];</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (entry.startTime </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> lastSessionEntry.startTime </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> 1000</span><span style="color:#F97583"> &#x26;&#x26;</span></span>
-<span class="line"><span style="color:#E1E4E8">            entry.startTime </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> firstSessionEntry.startTime </span><span style="color:#F97583">&#x3C;</span><span style="color:#79B8FF"> 5000</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#E1E4E8">          clsValue </span><span style="color:#F97583">+=</span><span style="color:#E1E4E8"> entry.value;</span></span>
-<span class="line"><span style="color:#E1E4E8">          clsEntries.</span><span style="color:#B392F0">push</span><span style="color:#E1E4E8">(entry);</span></span>
-<span class="line"><span style="color:#E1E4E8">        } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">          clsValue </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> entry.value;</span></span>
-<span class="line"><span style="color:#E1E4E8">          clsEntries </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> [entry];</span></span>
-<span class="line"><span style="color:#E1E4E8">        }</span></span>
-<span class="line"><span style="color:#E1E4E8">      }</span></span>
-<span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">    console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'CLS:'</span><span style="color:#E1E4E8">, clsValue);</span></span>
-<span class="line"><span style="color:#E1E4E8">  }).</span><span style="color:#B392F0">observe</span><span style="color:#E1E4E8">({ entryTypes: [</span><span style="color:#9ECBFF">'layout-shift'</span><span style="color:#E1E4E8">] });</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Measuring CLS</span>
+<span class="token keyword">function</span> <span class="token function">measureCLS</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> clsValue <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token keyword">let</span> clsEntries <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">new</span> <span class="token class-name">PerformanceObserver</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">entryList</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> entry <span class="token keyword">of</span> entryList<span class="token punctuation">.</span><span class="token function">getEntries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>entry<span class="token punctuation">.</span>hadRecentInput<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> firstSessionEntry <span class="token operator">=</span> clsEntries<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> lastSessionEntry <span class="token operator">=</span> clsEntries<span class="token punctuation">[</span>clsEntries<span class="token punctuation">.</span>length <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>entry<span class="token punctuation">.</span>startTime <span class="token operator">-</span> lastSessionEntry<span class="token punctuation">.</span>startTime <span class="token operator">&#x3C;</span> <span class="token number">1000</span> <span class="token operator">&#x26;&#x26;</span>
+            entry<span class="token punctuation">.</span>startTime <span class="token operator">-</span> firstSessionEntry<span class="token punctuation">.</span>startTime <span class="token operator">&#x3C;</span> <span class="token number">5000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          clsValue <span class="token operator">+=</span> entry<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+          clsEntries<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>entry<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+          clsValue <span class="token operator">=</span> entry<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+          clsEntries <span class="token operator">=</span> <span class="token punctuation">[</span>entry<span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'CLS:'</span><span class="token punctuation">,</span> clsValue<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">entryTypes</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'layout-shift'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="advanced-code-splitting-strategies">Advanced Code Splitting Strategies</h2>
 <p>Code splitting allows you to split your code into various bundles which can be loaded on demand or in parallel.</p>
 <h3 id="route-based-code-splitting">Route-Based Code Splitting</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// React Router with lazy loading</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { lazy, Suspense } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'react'</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { Routes, Route } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'react-router-dom'</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> Home</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> lazy</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#F97583"> import</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'./pages/Home'</span><span style="color:#E1E4E8">));</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> About</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> lazy</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#F97583"> import</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'./pages/About'</span><span style="color:#E1E4E8">));</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> Contact</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> lazy</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#F97583"> import</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'./pages/Contact'</span><span style="color:#E1E4E8">));</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> App</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
-<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#79B8FF">Suspense</span><span style="color:#B392F0"> fallback</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{&#x3C;</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">>Loading...&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">>}></span></span>
-<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#79B8FF">Routes</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#79B8FF">Route</span><span style="color:#B392F0"> path</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"/"</span><span style="color:#B392F0"> element</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{&#x3C;</span><span style="color:#79B8FF">Home</span><span style="color:#E1E4E8"> />} /></span></span>
-<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#79B8FF">Route</span><span style="color:#B392F0"> path</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"/about"</span><span style="color:#B392F0"> element</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{&#x3C;</span><span style="color:#79B8FF">About</span><span style="color:#E1E4E8"> />} /></span></span>
-<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#79B8FF">Route</span><span style="color:#B392F0"> path</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">"/contact"</span><span style="color:#B392F0"> element</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{&#x3C;</span><span style="color:#79B8FF">Contact</span><span style="color:#E1E4E8"> />} /></span></span>
-<span class="line"><span style="color:#E1E4E8">      &#x3C;/</span><span style="color:#79B8FF">Routes</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#79B8FF">Suspense</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">  );</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// React Router with lazy loading</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> lazy<span class="token punctuation">,</span> Suspense <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Routes<span class="token punctuation">,</span> Route <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react-router-dom'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> Home <span class="token operator">=</span> <span class="token function">lazy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./pages/Home'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> About <span class="token operator">=</span> <span class="token function">lazy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./pages/About'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> Contact <span class="token operator">=</span> <span class="token function">lazy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./pages/Contact'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&#x3C;</span>Suspense fallback<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&#x3C;</span>div<span class="token operator">></span>Loading<span class="token operator">...</span><span class="token operator">&#x3C;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">}</span><span class="token operator">></span>
+      <span class="token operator">&#x3C;</span>Routes<span class="token operator">></span>
+        <span class="token operator">&#x3C;</span>Route path<span class="token operator">=</span><span class="token string">"/"</span> element<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&#x3C;</span>Home <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&#x3C;</span>Route path<span class="token operator">=</span><span class="token string">"/about"</span> element<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&#x3C;</span>About <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&#x3C;</span>Route path<span class="token operator">=</span><span class="token string">"/contact"</span> element<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&#x3C;</span>Contact <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&#x3C;</span><span class="token operator">/</span>Routes<span class="token operator">></span>
+    <span class="token operator">&#x3C;</span><span class="token operator">/</span>Suspense<span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="component-based-code-splitting">Component-Based Code Splitting</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Dynamic imports for heavy components</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> HeavyChart</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> lazy</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> </span></span>
-<span class="line"><span style="color:#F97583">  import</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'./HeavyChart'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">then</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">module</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> ({</span></span>
-<span class="line"><span style="color:#E1E4E8">    default: </span><span style="color:#79B8FF">module</span><span style="color:#E1E4E8">.HeavyChart</span></span>
-<span class="line"><span style="color:#E1E4E8">  }))</span></span>
-<span class="line"><span style="color:#E1E4E8">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> Dashboard</span><span style="color:#E1E4E8">({ </span><span style="color:#FFAB70">showChart</span><span style="color:#E1E4E8"> }) {</span></span>
-<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> (</span></span>
-<span class="line"><span style="color:#E1E4E8">    &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">      &#x3C;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">>Dashboard&#x3C;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">      {showChart </span><span style="color:#F97583">&#x26;&#x26;</span><span style="color:#E1E4E8"> (</span></span>
-<span class="line"><span style="color:#E1E4E8">        &#x3C;</span><span style="color:#79B8FF">Suspense</span><span style="color:#B392F0"> fallback</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{&#x3C;</span><span style="color:#79B8FF">ChartSkeleton</span><span style="color:#E1E4E8"> />}></span></span>
-<span class="line"><span style="color:#E1E4E8">          &#x3C;</span><span style="color:#79B8FF">HeavyChart</span><span style="color:#E1E4E8"> /></span></span>
-<span class="line"><span style="color:#E1E4E8">        &#x3C;/</span><span style="color:#79B8FF">Suspense</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">      )}</span></span>
-<span class="line"><span style="color:#E1E4E8">    &#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">></span></span>
-<span class="line"><span style="color:#E1E4E8">  );</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Dynamic imports for heavy components</span>
+<span class="token keyword">const</span> HeavyChart <span class="token operator">=</span> <span class="token function">lazy</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> 
+  <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token string">'./HeavyChart'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">module</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token keyword">default</span><span class="token operator">:</span> module<span class="token punctuation">.</span>HeavyChart
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">Dashboard</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> showChart <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&#x3C;</span>div<span class="token operator">></span>
+      <span class="token operator">&#x3C;</span>h1<span class="token operator">></span>Dashboard<span class="token operator">&#x3C;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+      <span class="token punctuation">{</span>showChart <span class="token operator">&#x26;&#x26;</span> <span class="token punctuation">(</span>
+        <span class="token operator">&#x3C;</span>Suspense fallback<span class="token operator">=</span><span class="token punctuation">{</span><span class="token operator">&#x3C;</span>ChartSkeleton <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">}</span><span class="token operator">></span>
+          <span class="token operator">&#x3C;</span>HeavyChart <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&#x3C;</span><span class="token operator">/</span>Suspense<span class="token operator">></span>
+      <span class="token punctuation">)</span><span class="token punctuation">}</span>
+    <span class="token operator">&#x3C;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="webpack-bundle-analysis">Webpack Bundle Analysis</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// webpack.config.js</span></span>
-<span class="line"><span style="color:#79B8FF">module</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">exports</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  optimization: {</span></span>
-<span class="line"><span style="color:#E1E4E8">    splitChunks: {</span></span>
-<span class="line"><span style="color:#E1E4E8">      chunks: </span><span style="color:#9ECBFF">'all'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">      cacheGroups: {</span></span>
-<span class="line"><span style="color:#E1E4E8">        vendor: {</span></span>
-<span class="line"><span style="color:#E1E4E8">          test:</span><span style="color:#9ECBFF"> /</span><span style="color:#79B8FF">[</span><span style="color:#85E89D;font-weight:bold">\\</span><span style="color:#79B8FF">/]</span><span style="color:#DBEDFF">node_modules</span><span style="color:#79B8FF">[</span><span style="color:#85E89D;font-weight:bold">\\</span><span style="color:#79B8FF">/]</span><span style="color:#9ECBFF">/</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">          name: </span><span style="color:#9ECBFF">'vendors'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">          chunks: </span><span style="color:#9ECBFF">'all'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">        },</span></span>
-<span class="line"><span style="color:#E1E4E8">        common: {</span></span>
-<span class="line"><span style="color:#E1E4E8">          name: </span><span style="color:#9ECBFF">'common'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">          minChunks: </span><span style="color:#79B8FF">2</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">          chunks: </span><span style="color:#9ECBFF">'all'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">          enforce: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">        },</span></span>
-<span class="line"><span style="color:#E1E4E8">      },</span></span>
-<span class="line"><span style="color:#E1E4E8">    },</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">};</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// webpack.config.js</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">optimization</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">splitChunks</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">chunks</span><span class="token operator">:</span> <span class="token string">'all'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">cacheGroups</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">vendor</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">test</span><span class="token operator">:</span> <span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">[\\/]node_modules[\\/]</span><span class="token regex-delimiter">/</span></span><span class="token punctuation">,</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'vendors'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">chunks</span><span class="token operator">:</span> <span class="token string">'all'</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">common</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+          <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'common'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">minChunks</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">chunks</span><span class="token operator">:</span> <span class="token string">'all'</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">enforce</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre>
 <h2 id="advanced-lazy-loading-techniques">Advanced Lazy Loading Techniques</h2>
 <h3 id="intersection-observer-api">Intersection Observer API</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Advanced lazy loading with Intersection Observer</span></span>
-<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> LazyLoader</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">options</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {}) {</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.options </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">      root: </span><span style="color:#79B8FF">null</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">      rootMargin: </span><span style="color:#9ECBFF">'50px'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">      threshold: </span><span style="color:#79B8FF">0.1</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#F97583">      ...</span><span style="color:#E1E4E8">options</span></span>
-<span class="line"><span style="color:#E1E4E8">    };</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.observer </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IntersectionObserver</span><span style="color:#E1E4E8">(</span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.handleIntersection.</span><span style="color:#B392F0">bind</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">),</span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.options</span></span>
-<span class="line"><span style="color:#E1E4E8">    );</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  observe</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">element</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.observer.</span><span style="color:#B392F0">observe</span><span style="color:#E1E4E8">(element);</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  handleIntersection</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">entries</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#E1E4E8">    entries.</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">entry</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (entry.isIntersecting) {</span></span>
-<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">loadElement</span><span style="color:#E1E4E8">(entry.target);</span></span>
-<span class="line"><span style="color:#79B8FF">        this</span><span style="color:#E1E4E8">.observer.</span><span style="color:#B392F0">unobserve</span><span style="color:#E1E4E8">(entry.target);</span></span>
-<span class="line"><span style="color:#E1E4E8">      }</span></span>
-<span class="line"><span style="color:#E1E4E8">    });</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  loadElement</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">element</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (element.dataset.src) {</span></span>
-<span class="line"><span style="color:#E1E4E8">      element.src </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> element.dataset.src;</span></span>
-<span class="line"><span style="color:#E1E4E8">      element.classList.</span><span style="color:#B392F0">add</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'loaded'</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span></span>
-<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (element.dataset.component) {</span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">loadComponent</span><span style="color:#E1E4E8">(element);</span></span>
-<span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">  async</span><span style="color:#B392F0"> loadComponent</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">element</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#F97583">    try</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> componentName</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> element.dataset.component;</span></span>
-<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> module</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#F97583"> import</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">`./components/${</span><span style="color:#E1E4E8">componentName</span><span style="color:#9ECBFF">}`</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> Component</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> module</span><span style="color:#E1E4E8">.default;</span></span>
-<span class="line"><span style="color:#E1E4E8">      </span></span>
-<span class="line"><span style="color:#6A737D">      // Render component</span></span>
-<span class="line"><span style="color:#E1E4E8">      ReactDOM.</span><span style="color:#B392F0">render</span><span style="color:#E1E4E8">(&#x3C;</span><span style="color:#79B8FF">Component</span><span style="color:#E1E4E8"> />, element);</span></span>
-<span class="line"><span style="color:#E1E4E8">    } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (error) {</span></span>
-<span class="line"><span style="color:#E1E4E8">      console.</span><span style="color:#B392F0">error</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Failed to load component:'</span><span style="color:#E1E4E8">, error);</span></span>
-<span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Usage</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> lazyLoader</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> LazyLoader</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">document.</span><span style="color:#B392F0">querySelectorAll</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'[data-lazy]'</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">el</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  lazyLoader.</span><span style="color:#B392F0">observe</span><span style="color:#E1E4E8">(el);</span></span>
-<span class="line"><span style="color:#E1E4E8">});</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Advanced lazy loading with Intersection Observer</span>
+<span class="token keyword">class</span> <span class="token class-name">LazyLoader</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">options <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>options <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">root</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">rootMargin</span><span class="token operator">:</span> <span class="token string">'50px'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">threshold</span><span class="token operator">:</span> <span class="token number">0.1</span><span class="token punctuation">,</span>
+      <span class="token operator">...</span>options
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    
+    <span class="token keyword">this</span><span class="token punctuation">.</span>observer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntersectionObserver</span><span class="token punctuation">(</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">handleIntersection</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>options
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">observe</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>observer<span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">handleIntersection</span><span class="token punctuation">(</span><span class="token parameter">entries</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    entries<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">entry</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>entry<span class="token punctuation">.</span>isIntersecting<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">loadElement</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>observer<span class="token punctuation">.</span><span class="token function">unobserve</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span>target<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">loadElement</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>src<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      element<span class="token punctuation">.</span>src <span class="token operator">=</span> element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>src<span class="token punctuation">;</span>
+      element<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'loaded'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>component<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">loadComponent</span><span class="token punctuation">(</span>element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">async</span> <span class="token function">loadComponent</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">try</span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> componentName <span class="token operator">=</span> element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>component<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> module <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token keyword">import</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">./components/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>componentName<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> Component <span class="token operator">=</span> module<span class="token punctuation">.</span>default<span class="token punctuation">;</span>
+      
+      <span class="token comment">// Render component</span>
+      ReactDOM<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span><span class="token operator">&#x3C;</span>Component <span class="token operator">/</span><span class="token operator">></span><span class="token punctuation">,</span> element<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">'Failed to load component:'</span><span class="token punctuation">,</span> error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage</span>
+<span class="token keyword">const</span> lazyLoader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">LazyLoader</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'[data-lazy]'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">el</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  lazyLoader<span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <h3 id="image-lazy-loading-with-blur-effect">Image Lazy Loading with Blur Effect</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Progressive image loading with blur effect</span></span>
-<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> ProgressiveImage</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">element</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.element </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> element;</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.lowResSrc </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> element.dataset.lowres;</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.highResSrc </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> element.dataset.highres;</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">loadLowRes</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  loadLowRes</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> lowResImg</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Image</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">    lowResImg.</span><span style="color:#B392F0">onload</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.element.src </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.lowResSrc;</span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.element.classList.</span><span style="color:#B392F0">add</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'blur'</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">loadHighRes</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">    };</span></span>
-<span class="line"><span style="color:#E1E4E8">    lowResImg.src </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.lowResSrc;</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  loadHighRes</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> highResImg</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Image</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">    highResImg.</span><span style="color:#B392F0">onload</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.element.src </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.highResSrc;</span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.element.classList.</span><span style="color:#B392F0">remove</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'blur'</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.element.classList.</span><span style="color:#B392F0">add</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'loaded'</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">    };</span></span>
-<span class="line"><span style="color:#E1E4E8">    highResImg.src </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">.highResSrc;</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// CSS for blur effect</span></span>
-<span class="line"><span style="color:#6A737D">/*</span></span>
-<span class="line"><span style="color:#6A737D">.progressive-image {</span></span>
-<span class="line"><span style="color:#6A737D">  transition: filter 0.3s;</span></span>
-<span class="line"><span style="color:#6A737D">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">.progressive-image.blur {</span></span>
-<span class="line"><span style="color:#6A737D">  filter: blur(5px);</span></span>
-<span class="line"><span style="color:#6A737D">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">.progressive-image.loaded {</span></span>
-<span class="line"><span style="color:#6A737D">  filter: none;</span></span>
-<span class="line"><span style="color:#6A737D">}</span></span>
-<span class="line"><span style="color:#6A737D">*/</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Progressive image loading with blur effect</span>
+<span class="token keyword">class</span> <span class="token class-name">ProgressiveImage</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">element</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>element <span class="token operator">=</span> element<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>lowResSrc <span class="token operator">=</span> element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>lowres<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>highResSrc <span class="token operator">=</span> element<span class="token punctuation">.</span>dataset<span class="token punctuation">.</span>highres<span class="token punctuation">;</span>
+    
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">loadLowRes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">loadLowRes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> lowResImg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    lowResImg<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lowResSrc<span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'blur'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">loadHighRes</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    lowResImg<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lowResSrc<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">loadHighRes</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> highResImg <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    highResImg<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>highResSrc<span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">remove</span><span class="token punctuation">(</span><span class="token string">'blur'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">this</span><span class="token punctuation">.</span>element<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token string">'loaded'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    highResImg<span class="token punctuation">.</span>src <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>highResSrc<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// CSS for blur effect</span>
+<span class="token comment">/*
+.progressive-image {
+  transition: filter 0.3s;
+}
+
+.progressive-image.blur {
+  filter: blur(5px);
+}
+
+.progressive-image.loaded {
+  filter: none;
+}
+*/</span>
+</code></pre>
 <h2 id="caching-strategies">Caching Strategies</h2>
 <h3 id="service-worker-caching">Service Worker Caching</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Advanced service worker caching</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> CACHE_NAME</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'app-v1'</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> STATIC_CACHE</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'static-v1'</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> DYNAMIC_CACHE</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> 'dynamic-v1'</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> STATIC_ASSETS</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span></span>
-<span class="line"><span style="color:#9ECBFF">  '/'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#9ECBFF">  '/css/main.css'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#9ECBFF">  '/js/main.js'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#9ECBFF">  '/images/logo.png'</span></span>
-<span class="line"><span style="color:#E1E4E8">];</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Install event</span></span>
-<span class="line"><span style="color:#E1E4E8">self.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'install'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">event</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  event.</span><span style="color:#B392F0">waitUntil</span><span style="color:#E1E4E8">(</span></span>
-<span class="line"><span style="color:#E1E4E8">    caches.</span><span style="color:#B392F0">open</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">STATIC_CACHE</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">      .</span><span style="color:#B392F0">then</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">cache</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> cache.</span><span style="color:#B392F0">addAll</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">STATIC_ASSETS</span><span style="color:#E1E4E8">))</span></span>
-<span class="line"><span style="color:#E1E4E8">  );</span></span>
-<span class="line"><span style="color:#E1E4E8">});</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Fetch event with advanced caching strategies</span></span>
-<span class="line"><span style="color:#E1E4E8">self.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'fetch'</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">event</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">  const</span><span style="color:#E1E4E8"> { </span><span style="color:#79B8FF">request</span><span style="color:#E1E4E8"> } </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> event;</span></span>
-<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> url</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> URL</span><span style="color:#E1E4E8">(request.url);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // Handle different resource types</span></span>
-<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (request.destination </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> 'image'</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#E1E4E8">    event.</span><span style="color:#B392F0">respondWith</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">handleImageRequest</span><span style="color:#E1E4E8">(request));</span></span>
-<span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">else</span><span style="color:#F97583"> if</span><span style="color:#E1E4E8"> (url.pathname.</span><span style="color:#B392F0">startsWith</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/api/'</span><span style="color:#E1E4E8">)) {</span></span>
-<span class="line"><span style="color:#E1E4E8">    event.</span><span style="color:#B392F0">respondWith</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">handleAPIRequest</span><span style="color:#E1E4E8">(request));</span></span>
-<span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">else</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    event.</span><span style="color:#B392F0">respondWith</span><span style="color:#E1E4E8">(</span><span style="color:#B392F0">handleStaticRequest</span><span style="color:#E1E4E8">(request));</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"><span style="color:#E1E4E8">});</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Image caching strategy</span></span>
-<span class="line"><span style="color:#F97583">async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> handleImageRequest</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">request</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> cache</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> caches.</span><span style="color:#B392F0">open</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">DYNAMIC_CACHE</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> cachedResponse</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> cache.</span><span style="color:#B392F0">match</span><span style="color:#E1E4E8">(request);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (cachedResponse) {</span></span>
-<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> cachedResponse;</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">  try</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> networkResponse</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(request);</span></span>
-<span class="line"><span style="color:#E1E4E8">    cache.</span><span style="color:#B392F0">put</span><span style="color:#E1E4E8">(request, networkResponse.</span><span style="color:#B392F0">clone</span><span style="color:#E1E4E8">());</span></span>
-<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> networkResponse;</span></span>
-<span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (error) {</span></span>
-<span class="line"><span style="color:#6A737D">    // Return fallback image</span></span>
-<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> caches.</span><span style="color:#B392F0">match</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/images/fallback.png'</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// API caching with TTL</span></span>
-<span class="line"><span style="color:#F97583">async</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> handleAPIRequest</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">request</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> cache</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> caches.</span><span style="color:#B392F0">open</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">DYNAMIC_CACHE</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> cachedResponse</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#E1E4E8"> cache.</span><span style="color:#B392F0">match</span><span style="color:#E1E4E8">(request);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">  // Check if cached response is still valid (5 minutes TTL)</span></span>
-<span class="line"><span style="color:#F97583">  if</span><span style="color:#E1E4E8"> (cachedResponse) {</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> cachedTime</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Date</span><span style="color:#E1E4E8">(cachedResponse.headers.</span><span style="color:#B392F0">get</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'cached-time'</span><span style="color:#E1E4E8">));</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> now</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Date</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> fiveMinutes</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> 5</span><span style="color:#F97583"> *</span><span style="color:#79B8FF"> 60</span><span style="color:#F97583"> *</span><span style="color:#79B8FF"> 1000</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (now </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> cachedTime </span><span style="color:#F97583">&#x3C;</span><span style="color:#E1E4E8"> fiveMinutes) {</span></span>
-<span class="line"><span style="color:#F97583">      return</span><span style="color:#E1E4E8"> cachedResponse;</span></span>
-<span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">  try</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> networkResponse</span><span style="color:#F97583"> =</span><span style="color:#F97583"> await</span><span style="color:#B392F0"> fetch</span><span style="color:#E1E4E8">(request);</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> responseClone</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> networkResponse.</span><span style="color:#B392F0">clone</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span></span>
-<span class="line"><span style="color:#6A737D">    // Add timestamp header</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> response</span><span style="color:#F97583"> =</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Response</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">await</span><span style="color:#E1E4E8"> responseClone.</span><span style="color:#B392F0">blob</span><span style="color:#E1E4E8">(), {</span></span>
-<span class="line"><span style="color:#E1E4E8">      status: networkResponse.status,</span></span>
-<span class="line"><span style="color:#E1E4E8">      statusText: networkResponse.statusText,</span></span>
-<span class="line"><span style="color:#E1E4E8">      headers: {</span></span>
-<span class="line"><span style="color:#F97583">        ...</span><span style="color:#E1E4E8">Object.</span><span style="color:#B392F0">fromEntries</span><span style="color:#E1E4E8">(networkResponse.headers.</span><span style="color:#B392F0">entries</span><span style="color:#E1E4E8">()),</span></span>
-<span class="line"><span style="color:#9ECBFF">        'cached-time'</span><span style="color:#E1E4E8">: </span><span style="color:#F97583">new</span><span style="color:#B392F0"> Date</span><span style="color:#E1E4E8">().</span><span style="color:#B392F0">toISOString</span><span style="color:#E1E4E8">()</span></span>
-<span class="line"><span style="color:#E1E4E8">      }</span></span>
-<span class="line"><span style="color:#E1E4E8">    });</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">    cache.</span><span style="color:#B392F0">put</span><span style="color:#E1E4E8">(request, response.</span><span style="color:#B392F0">clone</span><span style="color:#E1E4E8">());</span></span>
-<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> response;</span></span>
-<span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#F97583">catch</span><span style="color:#E1E4E8"> (error) {</span></span>
-<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> cachedResponse </span><span style="color:#F97583">||</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> Response</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Offline'</span><span style="color:#E1E4E8">, { status: </span><span style="color:#79B8FF">503</span><span style="color:#E1E4E8"> });</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Advanced service worker caching</span>
+<span class="token keyword">const</span> <span class="token constant">CACHE_NAME</span> <span class="token operator">=</span> <span class="token string">'app-v1'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">STATIC_CACHE</span> <span class="token operator">=</span> <span class="token string">'static-v1'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token constant">DYNAMIC_CACHE</span> <span class="token operator">=</span> <span class="token string">'dynamic-v1'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token constant">STATIC_ASSETS</span> <span class="token operator">=</span> <span class="token punctuation">[</span>
+  <span class="token string">'/'</span><span class="token punctuation">,</span>
+  <span class="token string">'/css/main.css'</span><span class="token punctuation">,</span>
+  <span class="token string">'/js/main.js'</span><span class="token punctuation">,</span>
+  <span class="token string">'/images/logo.png'</span>
+<span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Install event</span>
+self<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'install'</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  event<span class="token punctuation">.</span><span class="token function">waitUntil</span><span class="token punctuation">(</span>
+    caches<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token constant">STATIC_CACHE</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">cache</span> <span class="token operator">=></span> cache<span class="token punctuation">.</span><span class="token function">addAll</span><span class="token punctuation">(</span><span class="token constant">STATIC_ASSETS</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Fetch event with advanced caching strategies</span>
+self<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'fetch'</span><span class="token punctuation">,</span> <span class="token parameter">event</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> request <span class="token punctuation">}</span> <span class="token operator">=</span> event<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> url <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">URL</span><span class="token punctuation">(</span>request<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Handle different resource types</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>request<span class="token punctuation">.</span>destination <span class="token operator">===</span> <span class="token string">'image'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    event<span class="token punctuation">.</span><span class="token function">respondWith</span><span class="token punctuation">(</span><span class="token function">handleImageRequest</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>url<span class="token punctuation">.</span>pathname<span class="token punctuation">.</span><span class="token function">startsWith</span><span class="token punctuation">(</span><span class="token string">'/api/'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    event<span class="token punctuation">.</span><span class="token function">respondWith</span><span class="token punctuation">(</span><span class="token function">handleAPIRequest</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    event<span class="token punctuation">.</span><span class="token function">respondWith</span><span class="token punctuation">(</span><span class="token function">handleStaticRequest</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Image caching strategy</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">handleImageRequest</span><span class="token punctuation">(</span><span class="token parameter">request</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> cache <span class="token operator">=</span> <span class="token keyword">await</span> caches<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token constant">DYNAMIC_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> cachedResponse <span class="token operator">=</span> <span class="token keyword">await</span> cache<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>cachedResponse<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> cachedResponse<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> networkResponse <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    cache<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> networkResponse<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> networkResponse<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Return fallback image</span>
+    <span class="token keyword">return</span> caches<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token string">'/images/fallback.png'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// API caching with TTL</span>
+<span class="token keyword">async</span> <span class="token keyword">function</span> <span class="token function">handleAPIRequest</span><span class="token punctuation">(</span><span class="token parameter">request</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> cache <span class="token operator">=</span> <span class="token keyword">await</span> caches<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token constant">DYNAMIC_CACHE</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> cachedResponse <span class="token operator">=</span> <span class="token keyword">await</span> cache<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Check if cached response is still valid (5 minutes TTL)</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>cachedResponse<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> cachedTime <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span>cachedResponse<span class="token punctuation">.</span>headers<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'cached-time'</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> now <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> fiveMinutes <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>now <span class="token operator">-</span> cachedTime <span class="token operator">&#x3C;</span> fiveMinutes<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> cachedResponse<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token keyword">try</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> networkResponse <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span>request<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> responseClone <span class="token operator">=</span> networkResponse<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    
+    <span class="token comment">// Add timestamp header</span>
+    <span class="token keyword">const</span> response <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token keyword">await</span> responseClone<span class="token punctuation">.</span><span class="token function">blob</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">status</span><span class="token operator">:</span> networkResponse<span class="token punctuation">.</span>status<span class="token punctuation">,</span>
+      <span class="token literal-property property">statusText</span><span class="token operator">:</span> networkResponse<span class="token punctuation">.</span>statusText<span class="token punctuation">,</span>
+      <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token operator">...</span>Object<span class="token punctuation">.</span><span class="token function">fromEntries</span><span class="token punctuation">(</span>networkResponse<span class="token punctuation">.</span>headers<span class="token punctuation">.</span><span class="token function">entries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token string-property property">'cached-time'</span><span class="token operator">:</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">toISOString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    cache<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span>request<span class="token punctuation">,</span> response<span class="token punctuation">.</span><span class="token function">clone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> response<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> cachedResponse <span class="token operator">||</span> <span class="token keyword">new</span> <span class="token class-name">Response</span><span class="token punctuation">(</span><span class="token string">'Offline'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">status</span><span class="token operator">:</span> <span class="token number">503</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h3 id="http-caching-headers">HTTP Caching Headers</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Express.js caching headers</span></span>
-<span class="line"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">use</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/static'</span><span style="color:#E1E4E8">, express.</span><span style="color:#B392F0">static</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'public'</span><span style="color:#E1E4E8">, {</span></span>
-<span class="line"><span style="color:#E1E4E8">  maxAge: </span><span style="color:#9ECBFF">'1y'</span><span style="color:#E1E4E8">, </span><span style="color:#6A737D">// 1 year for static assets</span></span>
-<span class="line"><span style="color:#E1E4E8">  etag: </span><span style="color:#79B8FF">true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  lastModified: </span><span style="color:#79B8FF">true</span></span>
-<span class="line"><span style="color:#E1E4E8">}));</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// API response caching</span></span>
-<span class="line"><span style="color:#E1E4E8">app.</span><span style="color:#B392F0">get</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/api/data'</span><span style="color:#E1E4E8">, (</span><span style="color:#FFAB70">req</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">res</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  res.</span><span style="color:#B392F0">set</span><span style="color:#E1E4E8">({</span></span>
-<span class="line"><span style="color:#9ECBFF">    'Cache-Control'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'public, max-age=300'</span><span style="color:#E1E4E8">, </span><span style="color:#6A737D">// 5 minutes</span></span>
-<span class="line"><span style="color:#9ECBFF">    'ETag'</span><span style="color:#E1E4E8">: </span><span style="color:#B392F0">generateETag</span><span style="color:#E1E4E8">(data),</span></span>
-<span class="line"><span style="color:#9ECBFF">    'Last-Modified'</span><span style="color:#E1E4E8">: data.lastModified</span></span>
-<span class="line"><span style="color:#E1E4E8">  });</span></span>
-<span class="line"><span style="color:#E1E4E8">  </span></span>
-<span class="line"><span style="color:#E1E4E8">  res.</span><span style="color:#B392F0">json</span><span style="color:#E1E4E8">(data);</span></span>
-<span class="line"><span style="color:#E1E4E8">});</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Generate ETag</span></span>
-<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> generateETag</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">data</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#F97583">  return</span><span style="color:#B392F0"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'crypto'</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">    .</span><span style="color:#B392F0">createHash</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'md5'</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#E1E4E8">    .</span><span style="color:#B392F0">update</span><span style="color:#E1E4E8">(</span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">(data))</span></span>
-<span class="line"><span style="color:#E1E4E8">    .</span><span style="color:#B392F0">digest</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'hex'</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Express.js caching headers</span>
+app<span class="token punctuation">.</span><span class="token function">use</span><span class="token punctuation">(</span><span class="token string">'/static'</span><span class="token punctuation">,</span> express<span class="token punctuation">.</span><span class="token function">static</span><span class="token punctuation">(</span><span class="token string">'public'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">maxAge</span><span class="token operator">:</span> <span class="token string">'1y'</span><span class="token punctuation">,</span> <span class="token comment">// 1 year for static assets</span>
+  <span class="token literal-property property">etag</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">lastModified</span><span class="token operator">:</span> <span class="token boolean">true</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// API response caching</span>
+app<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token string">'/api/data'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">req<span class="token punctuation">,</span> res</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  res<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token string-property property">'Cache-Control'</span><span class="token operator">:</span> <span class="token string">'public, max-age=300'</span><span class="token punctuation">,</span> <span class="token comment">// 5 minutes</span>
+    <span class="token string-property property">'ETag'</span><span class="token operator">:</span> <span class="token function">generateETag</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token string-property property">'Last-Modified'</span><span class="token operator">:</span> data<span class="token punctuation">.</span>lastModified
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Generate ETag</span>
+<span class="token keyword">function</span> <span class="token function">generateETag</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">'crypto'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">createHash</span><span class="token punctuation">(</span><span class="token string">'md5'</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">update</span><span class="token punctuation">(</span><span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">.</span><span class="token function">digest</span><span class="token punctuation">(</span><span class="token string">'hex'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="memory-and-cpu-optimization">Memory and CPU Optimization</h2>
 <h3 id="efficient-event-handling">Efficient Event Handling</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Debounced scroll handler</span></span>
-<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> debounce</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">func</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">wait</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> timeout;</span></span>
-<span class="line"><span style="color:#F97583">  return</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> executedFunction</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">...</span><span style="color:#FFAB70">args</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#B392F0"> later</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#B392F0">      clearTimeout</span><span style="color:#E1E4E8">(timeout);</span></span>
-<span class="line"><span style="color:#B392F0">      func</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">...</span><span style="color:#E1E4E8">args);</span></span>
-<span class="line"><span style="color:#E1E4E8">    };</span></span>
-<span class="line"><span style="color:#B392F0">    clearTimeout</span><span style="color:#E1E4E8">(timeout);</span></span>
-<span class="line"><span style="color:#E1E4E8">    timeout </span><span style="color:#F97583">=</span><span style="color:#B392F0"> setTimeout</span><span style="color:#E1E4E8">(later, wait);</span></span>
-<span class="line"><span style="color:#E1E4E8">  };</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Throttled scroll handler</span></span>
-<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> throttle</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">func</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">limit</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> inThrottle;</span></span>
-<span class="line"><span style="color:#F97583">  return</span><span style="color:#F97583"> function</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> args</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> arguments</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">    const</span><span style="color:#79B8FF"> context</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> this</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">!</span><span style="color:#E1E4E8">inThrottle) {</span></span>
-<span class="line"><span style="color:#E1E4E8">      func.</span><span style="color:#B392F0">apply</span><span style="color:#E1E4E8">(context, args);</span></span>
-<span class="line"><span style="color:#E1E4E8">      inThrottle </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#B392F0">      setTimeout</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> inThrottle </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> false</span><span style="color:#E1E4E8">, limit);</span></span>
-<span class="line"><span style="color:#E1E4E8">    }</span></span>
-<span class="line"><span style="color:#E1E4E8">  };</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Usage</span></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> debouncedResize</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> debounce</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Window resized'</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">}, </span><span style="color:#79B8FF">300</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> throttledScroll</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> throttle</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Scrolling'</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">}, </span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">window.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'resize'</span><span style="color:#E1E4E8">, debouncedResize);</span></span>
-<span class="line"><span style="color:#E1E4E8">window.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'scroll'</span><span style="color:#E1E4E8">, throttledScroll);</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Debounced scroll handler</span>
+<span class="token keyword">function</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> wait</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> timeout<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token function">executedFunction</span><span class="token punctuation">(</span><span class="token parameter"><span class="token operator">...</span>args</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">later</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token function">func</span><span class="token punctuation">(</span><span class="token operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token function">clearTimeout</span><span class="token punctuation">(</span>timeout<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    timeout <span class="token operator">=</span> <span class="token function">setTimeout</span><span class="token punctuation">(</span>later<span class="token punctuation">,</span> wait<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Throttled scroll handler</span>
+<span class="token keyword">function</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token parameter">func<span class="token punctuation">,</span> limit</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> inThrottle<span class="token punctuation">;</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> args <span class="token operator">=</span> arguments<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> context <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>inThrottle<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token function">func</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span>context<span class="token punctuation">,</span> args<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      inThrottle <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> inThrottle <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">,</span> limit<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Usage</span>
+<span class="token keyword">const</span> debouncedResize <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Window resized'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">300</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> throttledScroll <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Scrolling'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'resize'</span><span class="token punctuation">,</span> debouncedResize<span class="token punctuation">)</span><span class="token punctuation">;</span>
+window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'scroll'</span><span class="token punctuation">,</span> throttledScroll<span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <h3 id="memory-leak-prevention">Memory Leak Prevention</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Proper cleanup in React components</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { useEffect, useRef } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> 'react'</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">function</span><span style="color:#B392F0"> MyComponent</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> intervalRef</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> useRef</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#F97583">  const</span><span style="color:#79B8FF"> observerRef</span><span style="color:#F97583"> =</span><span style="color:#B392F0"> useRef</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  useEffect</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#6A737D">    // Set up interval</span></span>
-<span class="line"><span style="color:#E1E4E8">    intervalRef.current </span><span style="color:#F97583">=</span><span style="color:#B392F0"> setInterval</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">      console.</span><span style="color:#B392F0">log</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'Interval tick'</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"><span style="color:#E1E4E8">    }, </span><span style="color:#79B8FF">1000</span><span style="color:#E1E4E8">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">    // Set up observer</span></span>
-<span class="line"><span style="color:#E1E4E8">    observerRef.current </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> IntersectionObserver</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">entries</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#6A737D">      // Handle intersection</span></span>
-<span class="line"><span style="color:#E1E4E8">    });</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">    // Cleanup function</span></span>
-<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (intervalRef.current) {</span></span>
-<span class="line"><span style="color:#B392F0">        clearInterval</span><span style="color:#E1E4E8">(intervalRef.current);</span></span>
-<span class="line"><span style="color:#E1E4E8">      }</span></span>
-<span class="line"><span style="color:#E1E4E8">      </span></span>
-<span class="line"><span style="color:#F97583">      if</span><span style="color:#E1E4E8"> (observerRef.current) {</span></span>
-<span class="line"><span style="color:#E1E4E8">        observerRef.current.</span><span style="color:#B392F0">disconnect</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">      }</span></span>
-<span class="line"><span style="color:#E1E4E8">    };</span></span>
-<span class="line"><span style="color:#E1E4E8">  }, []);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">  return</span><span style="color:#E1E4E8"> &#x3C;</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">>My Component&#x3C;/</span><span style="color:#85E89D">div</span><span style="color:#E1E4E8">>;</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Proper cleanup in React components</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> useRef <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">MyComponent</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> intervalRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> observerRef <span class="token operator">=</span> <span class="token function">useRef</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token comment">// Set up interval</span>
+    intervalRef<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'Interval tick'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Set up observer</span>
+    observerRef<span class="token punctuation">.</span>current <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">IntersectionObserver</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">entries</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token comment">// Handle intersection</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// Cleanup function</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>intervalRef<span class="token punctuation">.</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">clearInterval</span><span class="token punctuation">(</span>intervalRef<span class="token punctuation">.</span>current<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+      
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>observerRef<span class="token punctuation">.</span>current<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        observerRef<span class="token punctuation">.</span>current<span class="token punctuation">.</span><span class="token function">disconnect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token operator">&#x3C;</span>div<span class="token operator">></span>My Component<span class="token operator">&#x3C;</span><span class="token operator">/</span>div<span class="token operator">></span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre>
 <h2 id="performance-monitoring">Performance Monitoring</h2>
 <h3 id="real-user-monitoring-rum">Real User Monitoring (RUM)</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="javascript"><code><span class="line"><span style="color:#6A737D">// Custom performance monitoring</span></span>
-<span class="line"><span style="color:#F97583">class</span><span style="color:#B392F0"> PerformanceMonitor</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">  constructor</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.metrics </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {};</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">init</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  init</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">measurePageLoad</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">measureUserInteractions</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#79B8FF">    this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">measureResourceLoading</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  measurePageLoad</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#E1E4E8">    window.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'load'</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> navigation</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> performance.</span><span style="color:#B392F0">getEntriesByType</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'navigation'</span><span style="color:#E1E4E8">)[</span><span style="color:#79B8FF">0</span><span style="color:#E1E4E8">];</span></span>
-<span class="line"><span style="color:#E1E4E8">      </span></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.metrics.pageLoad </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">        domContentLoaded: navigation.domContentLoadedEventEnd </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> navigation.domContentLoadedEventStart,</span></span>
-<span class="line"><span style="color:#E1E4E8">        loadComplete: navigation.loadEventEnd </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> navigation.loadEventStart,</span></span>
-<span class="line"><span style="color:#E1E4E8">        totalTime: navigation.loadEventEnd </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> navigation.fetchStart</span></span>
-<span class="line"><span style="color:#E1E4E8">      };</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#79B8FF">      this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">sendMetrics</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'pageLoad'</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">this</span><span style="color:#E1E4E8">.metrics.pageLoad);</span></span>
-<span class="line"><span style="color:#E1E4E8">    });</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  measureUserInteractions</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#E1E4E8">    [</span><span style="color:#9ECBFF">'click'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'keydown'</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">'touchstart'</span><span style="color:#E1E4E8">].</span><span style="color:#B392F0">forEach</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">eventType</span><span style="color:#F97583"> =></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">      document.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(eventType, (</span><span style="color:#FFAB70">event</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">        const</span><span style="color:#79B8FF"> startTime</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> performance.</span><span style="color:#B392F0">now</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#E1E4E8">        </span></span>
-<span class="line"><span style="color:#B392F0">        requestAnimationFrame</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">          const</span><span style="color:#79B8FF"> endTime</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> performance.</span><span style="color:#B392F0">now</span><span style="color:#E1E4E8">();</span></span>
-<span class="line"><span style="color:#F97583">          const</span><span style="color:#79B8FF"> interactionTime</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> endTime </span><span style="color:#F97583">-</span><span style="color:#E1E4E8"> startTime;</span></span>
-<span class="line"><span style="color:#E1E4E8">          </span></span>
-<span class="line"><span style="color:#F97583">          if</span><span style="color:#E1E4E8"> (interactionTime </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 100</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#79B8FF">            this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">sendMetrics</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'slowInteraction'</span><span style="color:#E1E4E8">, {</span></span>
-<span class="line"><span style="color:#E1E4E8">              type: eventType,</span></span>
-<span class="line"><span style="color:#E1E4E8">              duration: interactionTime,</span></span>
-<span class="line"><span style="color:#E1E4E8">              target: event.target.tagName</span></span>
-<span class="line"><span style="color:#E1E4E8">            });</span></span>
-<span class="line"><span style="color:#E1E4E8">          }</span></span>
-<span class="line"><span style="color:#E1E4E8">        });</span></span>
-<span class="line"><span style="color:#E1E4E8">      });</span></span>
-<span class="line"><span style="color:#E1E4E8">    });</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  measureResourceLoading</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#F97583">    new</span><span style="color:#B392F0"> PerformanceObserver</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">list</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=></span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#F97583">      for</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">const</span><span style="color:#79B8FF"> entry</span><span style="color:#F97583"> of</span><span style="color:#E1E4E8"> list.</span><span style="color:#B392F0">getEntries</span><span style="color:#E1E4E8">()) {</span></span>
-<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (entry.duration </span><span style="color:#F97583">></span><span style="color:#79B8FF"> 1000</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#79B8FF">          this</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">sendMetrics</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'slowResource'</span><span style="color:#E1E4E8">, {</span></span>
-<span class="line"><span style="color:#E1E4E8">            name: entry.name,</span></span>
-<span class="line"><span style="color:#E1E4E8">            duration: entry.duration,</span></span>
-<span class="line"><span style="color:#E1E4E8">            type: entry.initiatorType</span></span>
-<span class="line"><span style="color:#E1E4E8">          });</span></span>
-<span class="line"><span style="color:#E1E4E8">        }</span></span>
-<span class="line"><span style="color:#E1E4E8">      }</span></span>
-<span class="line"><span style="color:#E1E4E8">    }).</span><span style="color:#B392F0">observe</span><span style="color:#E1E4E8">({ entryTypes: [</span><span style="color:#9ECBFF">'resource'</span><span style="color:#E1E4E8">] });</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B392F0">  sendMetrics</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">type</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">data</span><span style="color:#E1E4E8">) {</span></span>
-<span class="line"><span style="color:#6A737D">    // Send to analytics service</span></span>
-<span class="line"><span style="color:#B392F0">    fetch</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">'/api/metrics'</span><span style="color:#E1E4E8">, {</span></span>
-<span class="line"><span style="color:#E1E4E8">      method: </span><span style="color:#9ECBFF">'POST'</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">      headers: { </span><span style="color:#9ECBFF">'Content-Type'</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">'application/json'</span><span style="color:#E1E4E8"> },</span></span>
-<span class="line"><span style="color:#E1E4E8">      body: </span><span style="color:#79B8FF">JSON</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">stringify</span><span style="color:#E1E4E8">({</span></span>
-<span class="line"><span style="color:#E1E4E8">        type,</span></span>
-<span class="line"><span style="color:#E1E4E8">        data,</span></span>
-<span class="line"><span style="color:#E1E4E8">        timestamp: Date.</span><span style="color:#B392F0">now</span><span style="color:#E1E4E8">(),</span></span>
-<span class="line"><span style="color:#E1E4E8">        userAgent: navigator.userAgent,</span></span>
-<span class="line"><span style="color:#E1E4E8">        url: window.location.href</span></span>
-<span class="line"><span style="color:#E1E4E8">      })</span></span>
-<span class="line"><span style="color:#E1E4E8">    }).</span><span style="color:#B392F0">catch</span><span style="color:#E1E4E8">(console.error);</span></span>
-<span class="line"><span style="color:#E1E4E8">  }</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">// Initialize monitoring</span></span>
-<span class="line"><span style="color:#F97583">new</span><span style="color:#B392F0"> PerformanceMonitor</span><span style="color:#E1E4E8">();</span></span></code></pre>
+<pre class="language-javascript" data-language="javascript"><code is:raw="" class="language-javascript"><span class="token comment">// Custom performance monitoring</span>
+<span class="token keyword">class</span> <span class="token class-name">PerformanceMonitor</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>metrics <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">measurePageLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">measureUserInteractions</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">measureResourceLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">measurePageLoad</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">'load'</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">const</span> navigation <span class="token operator">=</span> performance<span class="token punctuation">.</span><span class="token function">getEntriesByType</span><span class="token punctuation">(</span><span class="token string">'navigation'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      
+      <span class="token keyword">this</span><span class="token punctuation">.</span>metrics<span class="token punctuation">.</span>pageLoad <span class="token operator">=</span> <span class="token punctuation">{</span>
+        <span class="token literal-property property">domContentLoaded</span><span class="token operator">:</span> navigation<span class="token punctuation">.</span>domContentLoadedEventEnd <span class="token operator">-</span> navigation<span class="token punctuation">.</span>domContentLoadedEventStart<span class="token punctuation">,</span>
+        <span class="token literal-property property">loadComplete</span><span class="token operator">:</span> navigation<span class="token punctuation">.</span>loadEventEnd <span class="token operator">-</span> navigation<span class="token punctuation">.</span>loadEventStart<span class="token punctuation">,</span>
+        <span class="token literal-property property">totalTime</span><span class="token operator">:</span> navigation<span class="token punctuation">.</span>loadEventEnd <span class="token operator">-</span> navigation<span class="token punctuation">.</span>fetchStart
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+      <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sendMetrics</span><span class="token punctuation">(</span><span class="token string">'pageLoad'</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>metrics<span class="token punctuation">.</span>pageLoad<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">measureUserInteractions</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token punctuation">[</span><span class="token string">'click'</span><span class="token punctuation">,</span> <span class="token string">'keydown'</span><span class="token punctuation">,</span> <span class="token string">'touchstart'</span><span class="token punctuation">]</span><span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">eventType</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span>eventType<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword">const</span> startTime <span class="token operator">=</span> performance<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        
+        <span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">const</span> endTime <span class="token operator">=</span> performance<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">const</span> interactionTime <span class="token operator">=</span> endTime <span class="token operator">-</span> startTime<span class="token punctuation">;</span>
+          
+          <span class="token keyword">if</span> <span class="token punctuation">(</span>interactionTime <span class="token operator">></span> <span class="token number">100</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sendMetrics</span><span class="token punctuation">(</span><span class="token string">'slowInteraction'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+              <span class="token literal-property property">type</span><span class="token operator">:</span> eventType<span class="token punctuation">,</span>
+              <span class="token literal-property property">duration</span><span class="token operator">:</span> interactionTime<span class="token punctuation">,</span>
+              <span class="token literal-property property">target</span><span class="token operator">:</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>tagName
+            <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">measureResourceLoading</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">new</span> <span class="token class-name">PerformanceObserver</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">list</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> entry <span class="token keyword">of</span> list<span class="token punctuation">.</span><span class="token function">getEntries</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>entry<span class="token punctuation">.</span>duration <span class="token operator">></span> <span class="token number">1000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">sendMetrics</span><span class="token punctuation">(</span><span class="token string">'slowResource'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+            <span class="token literal-property property">name</span><span class="token operator">:</span> entry<span class="token punctuation">.</span>name<span class="token punctuation">,</span>
+            <span class="token literal-property property">duration</span><span class="token operator">:</span> entry<span class="token punctuation">.</span>duration<span class="token punctuation">,</span>
+            <span class="token literal-property property">type</span><span class="token operator">:</span> entry<span class="token punctuation">.</span>initiatorType
+          <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">observe</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">entryTypes</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'resource'</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">sendMetrics</span><span class="token punctuation">(</span><span class="token parameter">type<span class="token punctuation">,</span> data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Send to analytics service</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'/api/metrics'</span><span class="token punctuation">,</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">method</span><span class="token operator">:</span> <span class="token string">'POST'</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">headers</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token string-property property">'Content-Type'</span><span class="token operator">:</span> <span class="token string">'application/json'</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">body</span><span class="token operator">:</span> <span class="token constant">JSON</span><span class="token punctuation">.</span><span class="token function">stringify</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        type<span class="token punctuation">,</span>
+        data<span class="token punctuation">,</span>
+        <span class="token literal-property property">timestamp</span><span class="token operator">:</span> Date<span class="token punctuation">.</span><span class="token function">now</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">userAgent</span><span class="token operator">:</span> navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">,</span>
+        <span class="token literal-property property">url</span><span class="token operator">:</span> window<span class="token punctuation">.</span>location<span class="token punctuation">.</span>href
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">catch</span><span class="token punctuation">(</span>console<span class="token punctuation">.</span>error<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// Initialize monitoring</span>
+<span class="token keyword">new</span> <span class="token class-name">PerformanceMonitor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</code></pre>
 <h2 id="conclusion">Conclusion</h2>
 <p>Advanced performance optimization requires a comprehensive approach covering loading strategies, caching, code organization, and continuous monitoring. By implementing these techniques, you can create web applications that deliver exceptional user experiences while maintaining high search engine rankings.</p>
 <p>Key strategies:</p>
