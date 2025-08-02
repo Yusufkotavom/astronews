@@ -101,6 +101,8 @@ export default defineConfig({
       ],
     }),
   ],
+
+
   // Markdown configuration
   markdown: {
     syntaxHighlight: 'prism',
@@ -111,6 +113,7 @@ export default defineConfig({
       wrap: true
     }
   },
+
   output: 'static', // Use static output for better performance
   adapter: vercel({
     // Static site configuration
@@ -167,7 +170,13 @@ export default defineConfig({
         ignored: [
           '**/node_modules/**',
           '**/dist/**',
+
+          '**/.git/**',
+          '**/src/content/post/**/*.md',
+          '**/src/content/page/**/*.md'
+
           '**/.git/**'
+
         ]
       }
     }
