@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Test</title>
+</head>
+<body>
+    <h1>Search Functionality Test</h1>
+    
+    <h2>Test 1: Direct Search URL</h2>
+    <p>Click this link to test search: <a href="/search?q=website" target="_blank">Search for "website"</a></p>
+    
+    <h2>Test 2: Search Form</h2>
+    <form action="/search" method="GET">
+        <input type="text" name="q" placeholder="Enter search term..." value="website">
+        <button type="submit">Search</button>
+    </form>
+    
+    <h2>Test 3: Common Search Terms</h2>
+    <ul>
+        <li><a href="/search?q=website" target="_blank">Search: website</a></li>
+        <li><a href="/search?q=service" target="_blank">Search: service</a></li>
+        <li><a href="/search?q=blog" target="_blank">Search: blog</a></li>
+        <li><a href="/search?q=contact" target="_blank">Search: contact</a></li>
+    </ul>
+    
+    <h2>Test 4: Empty Search</h2>
+    <p><a href="/search" target="_blank">Search page without query</a></p>
+</body>
+</html> 
