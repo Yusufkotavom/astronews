@@ -1,0 +1,388 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { searchContent, formatDate, stripHtml, getTypeBadgeColor } from '../utils/content-utils';
+
+// Get search query from URL
+const searchQuery = Astro.url.searchParams.get('q') || '';
+
+// Search in static content only (posts and pages)
+let searchResults: any[] = [];
+let totalResults = 0;
+let searchStats = {
+  posts: 0,
+  pages: 0,
+  total: 0
+};
+
+if (searchQuery) {
+  try {
+    // Use our enhanced search function
+    searchResults = await searchContent(searchQuery);
+    totalResults = searchResults.length;
+    
+    // Calculate search statistics
+    searchStats.posts = searchResults.filter(result => result.type === 'post').length;
+    searchStats.pages = searchResults.filter(result => result.type === 'page').length;
+    searchStats.total = totalResults;
+  } catch (error) {
+    console.error('Search error:', error);
+  }
+}
+
+// Format date function for display
+function formatSearchDate(dateString: string | undefined) {
+  if (!dateString) return '';
+  return formatDate(dateString);
+}
+
+// Clean and truncate descriptions
+function cleanDescription(description: string | undefined, maxLength: number = 150) {
+  if (!description) return '';
+  return stripHtml(description, maxLength);
+}
+
+const pageTitle = searchQuery 
+  ? `Search results for "${searchQuery}" | Kotacom`
+  : 'Search | Kotacom';
+---
+
+<Layout
+  title={pageTitle}
+  description={searchQuery ? `Search results for "${searchQuery}" on Kotacom` : 'Search Kotacom for articles, pages, and content'}
+  canonical={`https://www.kotacom.id/search${searchQuery ? `?q=${encodeURIComponent(searchQuery)}` : ''}`}
+>
+  <div class="bg-white dark:bg-gray-900 min-h-screen">
+    <!-- Search Header -->
+    <section class="bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-800 dark:to-gray-900 py-12">
+      <div class="max-w-4xl mx-auto px-4">
+        <div class="text-center mb-8">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+            {searchQuery ? 'Search Results' : 'Search'}
+          </h1>
+          {searchQuery && (
+            <p class="text-xl text-gray-600 dark:text-gray-300">
+              Results for <span class="font-semibold text-blue-600 dark:text-blue-400">"{searchQuery}"</span>
+            </p>
+          )}
+        </div>
+
+        <!-- Enhanced Search Form -->
+        <div class="relative max-w-2xl mx-auto">
+          <form action="/search" method="GET" class="relative">
+            <div class="relative">
+              <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </div>
+              <input
+                type="text"
+                name="q"
+                value={searchQuery}
+                placeholder="Search articles, pages, and content..."
+                class="block w-full pl-12 pr-12 py-4 text-lg border-2 border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dark:placeholder-gray-400 transition-all duration-200"
+                autocomplete="off"
+                autofocus
+              />
+              <div class="absolute inset-y-0 right-0 pr-4 flex items-center">
+                <button
+                  type="submit"
+                  class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
+
+          <!-- Search Suggestions -->
+          <div class="mt-4 flex flex-wrap gap-2 justify-center">
+            <span class="text-sm text-gray-600 dark:text-gray-400">Popular searches:</span>
+            {['web development', 'SEO', 'performance', 'javascript', 'responsive design'].map((term) => (
+              <a
+                href={`/search?q=${encodeURIComponent(term)}`}
+                class="inline-flex items-center px-3 py-1 text-sm bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200"
+              >
+                {term}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search Results -->
+    <section class="py-12">
+      <div class="max-w-7xl mx-auto px-4">
+        {searchQuery && (
+          <div class="mb-8">
+            <!-- Search Statistics -->
+            <div class="flex flex-wrap items-center justify-between mb-6">
+              <div class="flex items-center space-x-6">
+                <div class="text-lg font-semibold text-gray-900 dark:text-white">
+                  {totalResults > 0 ? (
+                    `Found ${totalResults} result${totalResults !== 1 ? 's' : ''}`
+                  ) : (
+                    'No results found'
+                  )}
+                </div>
+                {totalResults > 0 && (
+                  <div class="flex items-center space-x-4 text-sm text-gray-600 dark:text-gray-400">
+                    <span class="flex items-center">
+                      <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {searchStats.posts} posts
+                    </span>
+                    <span class="flex items-center">
+                      <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                      </svg>
+                      {searchStats.pages} pages
+                    </span>
+                  </div>
+                )}
+              </div>
+
+              <!-- Sort Options -->
+              {totalResults > 0 && (
+                <div class="flex items-center space-x-2">
+                  <span class="text-sm text-gray-600 dark:text-gray-400">Sort by:</span>
+                  <select class="text-sm border border-gray-300 dark:border-gray-600 rounded px-3 py-1 bg-white dark:bg-gray-700 text-gray-900 dark:text-white">
+                    <option value="relevance">Relevance</option>
+                    <option value="date">Date</option>
+                    <option value="title">Title</option>
+                  </select>
+                </div>
+              )}
+            </div>
+
+            <!-- Search Results -->
+            {totalResults > 0 ? (
+              <div class="space-y-6">
+                {searchResults.map((result, index) => (
+                  <article class="bg-white dark:bg-gray-800 rounded-lg shadow-sm hover:shadow-md border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 group">
+                    <div class="p-6">
+                      <div class="flex items-start justify-between mb-3">
+                        <div class="flex-1">
+                          <div class="flex items-center space-x-3 mb-2">
+                            <span class={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${getTypeBadgeColor(result.type)}`}>
+                              {result.type === 'post' ? (
+                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                              ) : (
+                                <svg class="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+                                </svg>
+                              )}
+                              {result.type}
+                            </span>
+
+                            {result.category && (
+                              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300">
+                                {result.category}
+                              </span>
+                            )}
+                          </div>
+
+                          <h2 class="text-xl font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                            <a href={result.url} class="hover:underline">
+                              {result.title}
+                            </a>
+                          </h2>
+
+                          {result.description && (
+                            <p class="text-gray-600 dark:text-gray-400 mb-3 leading-relaxed">
+                              {cleanDescription(result.description)}
+                            </p>
+                          )}
+
+                          <div class="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+                            {result.author && (
+                              <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
+                                <span>{result.author}</span>
+                              </div>
+                            )}
+
+                            {result.date && (
+                              <div class="flex items-center space-x-1">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                  <path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd" />
+                                </svg>
+                                <span>{formatSearchDate(result.date)}</span>
+                              </div>
+                            )}
+
+                            <div class="flex items-center space-x-1">
+                              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M12.586 4.586a2 2 0 112.828 2.828l-3 3a2 2 0 01-2.828 0 1 1 0 00-1.414 1.414 4 4 0 005.656 0l3-3a4 4 0 00-5.656-5.656l-1.5 1.5a1 1 0 101.414 1.414l1.5-1.5zm-5 5a2 2 0 012.828 0 1 1 0 101.414-1.414 4 4 0 00-5.656 0l-3 3a4 4 0 105.656 5.656l1.5-1.5a1 1 0 10-1.414-1.414l-1.5 1.5a2 2 0 11-2.828-2.828l3-3z" clip-rule="evenodd" />
+                              </svg>
+                              <a href={result.url} class="text-blue-600 dark:text-blue-400 hover:underline">
+                                {result.url}
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+
+                        {result.image && (
+                          <div class="ml-6 flex-shrink-0">
+                            <img
+                              src={result.image}
+                              alt={result.title}
+                              class="w-24 h-24 object-cover rounded-lg"
+                              loading="lazy"
+                            />
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            ) : (
+              <!-- No Results -->
+              <div class="text-center py-12">
+                <svg class="mx-auto h-24 w-24 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.238 0-4.29.91-5.758 2.379.674.379 1.406.621 2.206.621 2.657 0 4.79-1.343 5.552-3.379z" />
+                </svg>
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  No results found
+                </h3>
+                <p class="text-gray-600 dark:text-gray-400 mb-6">
+                  Sorry, we couldn't find any results for "{searchQuery}". Try searching with different keywords or check your spelling.
+                </p>
+
+                <div class="space-y-4">
+                  <div>
+                    <h4 class="text-lg font-medium text-gray-900 dark:text-white mb-2">
+                      Suggestions:
+                    </h4>
+                    <ul class="text-gray-600 dark:text-gray-400 space-y-1">
+                      <li>• Try using different or more general keywords</li>
+                      <li>• Check your spelling</li>
+                      <li>• Use fewer keywords</li>
+                      <li>• Try browsing our categories</li>
+                    </ul>
+                  </div>
+
+                  <div class="flex flex-wrap gap-2 justify-center mt-6">
+                    <a href="/blog" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200">
+                      Browse Blog
+                    </a>
+                    <a href="/category" class="inline-flex items-center px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors duration-200">
+                      View Categories
+                    </a>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+
+        {!searchQuery && (
+          <!-- Search Tips -->
+          <div class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div class="text-center">
+                <div class="bg-blue-100 dark:bg-blue-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Blog Posts</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                  Search through our latest articles, tutorials, and insights on web development, SEO, and technology.
+                </p>
+              </div>
+
+              <div class="text-center">
+                <div class="bg-green-100 dark:bg-green-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Pages</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                  Find information about our services, portfolio, team, and company details.
+                </p>
+              </div>
+
+              <div class="text-center">
+                <div class="bg-purple-100 dark:bg-purple-900 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                  <svg class="w-8 h-8 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M9.243 3.03a1 1 0 01.727 1.213L9.53 6h2.94l.56-2.243a1 1 0 111.94.486L14.53 6H17a1 1 0 110 2h-2.97l-1 4H15a1 1 0 110 2h-2.47l-.56 2.242a1 1 0 11-1.94-.485L10.47 14H7.53l-.56 2.242a1 1 0 11-1.94-.485L5.47 14H3a1 1 0 110-2h2.97l1-4H5a1 1 0 110-2h2.47l.56-2.243a1 1 0 011.213-.727zM9.03 8l-1 4h2.94l1-4H9.03z" clip-rule="evenodd" />
+                  </svg>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Categories & Tags</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                  Browse content by categories and tags to find exactly what you're looking for.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Enhanced search functionality
+    document.addEventListener('DOMContentLoaded', () => {
+      const searchInput = document.querySelector('input[name="q"]');
+      const sortSelect = document.querySelector('select');
+
+      // Auto-focus search input if no query
+      if (searchInput && !searchInput.value) {
+        searchInput.focus();
+      }
+
+      // Handle sort changes (for future implementation)
+      if (sortSelect) {
+        sortSelect.addEventListener('change', (e) => {
+          const currentUrl = new URL(window.location.href);
+          currentUrl.searchParams.set('sort', e.target.value);
+          // window.location.href = currentUrl.toString();
+        });
+      }
+
+      // Highlight search terms in results
+      const searchQuery = new URLSearchParams(window.location.search).get('q');
+      if (searchQuery) {
+        highlightSearchTerms(searchQuery);
+      }
+    });
+
+    function highlightSearchTerms(query) {
+      const results = document.querySelectorAll('article h2, article p');
+      const terms = query.toLowerCase().split(' ').filter(term => term.length > 2);
+
+      results.forEach(element => {
+        let html = element.innerHTML;
+
+        terms.forEach(term => {
+          const regex = new RegExp(`(${term})`, 'gi');
+          html = html.replace(regex, '<mark class="bg-yellow-200 dark:bg-yellow-800 px-1 rounded">$1</mark>');
+        });
+
+        element.innerHTML = html;
+      });
+    }
+  </script>
+
+  <style>
+    mark {
+      background-color: rgba(59, 130, 246, 0.1);
+      color: inherit;
+      padding: 0.125rem 0.25rem;
+      border-radius: 0.25rem;
+    }
+
+    .dark mark {
+      background-color: rgba(59, 130, 246, 0.2);
+    }
+  </style>
+</Layout>
