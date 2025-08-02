@@ -1,0 +1,171 @@
+{
+  "menu_items": [
+    {
+      "title": "Home",
+      "url": "/",
+      "icon": "home",
+      "submenu": [
+        {
+          "title": "Dashboard",
+          "url": "/",
+          "icon": "dashboard"
+        },
+        {
+          "title": "Features",
+          "url": "/features",
+          "icon": "features"
+        },
+        {
+          "title": "Showcase",
+          "url": "/showcase",
+          "icon": "showcase"
+        }
+      ]
+    },
+    {
+      "title": "Services",
+      "url": "/services",
+      "icon": "services",
+      "submenu": [
+        {
+          "title": "All Services",
+          "url": "/services",
+          "icon": "web",
+          "submenu": [
+            {
+              "title": "IT Service & Maintenance",
+              "url": "/services/it-service",
+              "icon": "it-service"
+            },
+            {
+              "title": "Web Development",
+              "url": "/services/website",
+              "icon": "website"
+            },
+            
+            {
+              "title": "Service Printer",
+              "url": "/services/printer",
+              "icon": "printer"
+            },
+            {
+              "title": "Service Macbook",
+              "url": "/services/macbook",
+              "icon": "macbook"
+            },
+            {
+              "title": "Service Server",
+              "url": "/services/server",
+              "icon": "server"
+            },
+            {
+              "title": "Service Network",
+              "url": "/services/network",
+              "icon": "network"
+            }
+          ]
+        },
+        {
+          "title": "Portfolio",
+          "url": "/portfolio",
+          "icon": "mobile"
+        },
+        {
+          "title": "jasa pembuatan website",
+          "url": "/services/website",
+          "icon": "website"
+        },
+        {
+          "title": "jasa pembuatan website",
+          "url": "/services/website",
+          "icon": "website"
+        },
+        {
+          "title": "Jasa Pembuatan Software",
+          "url": "/services/software",
+          "icon": "software"
+        }
+      ]
+    },
+    {
+      "title": "Blog",
+      "url": "/blog",
+      "icon": "blog",
+      "submenu": [
+        {
+          "title": "All Posts",
+          "url": "/blog",
+          "icon": "company"
+        },
+        {
+          "title": "Featured Posts",
+          "url": "/blog/featured",
+          "icon": "team"
+        }
+      ]
+    },
+    {
+      "title": "Pricing",
+      "url": "/pricing",
+      "icon": "pricing",
+      "submenu": [
+        {
+          "title": "Website Packages",
+          "url": "/pricing/",
+          "icon": "website"
+        },
+        {
+          "title": "E-Commerce Plans",
+          "url": "/pricing/ecommerce",
+          "icon": "ecommerce"
+        },
+        {
+          "title": "Maintenance Plans",
+          "url": "/pricing/maintenance",
+          "icon": "maintenance"
+        },
+        {
+          "title": "Custom Quote",
+          "url": "/pricing/custom",
+          "icon": "custom"
+        }
+      ]
+    },
+    {
+      "title": "About",
+      "url": "/about",
+      "icon": "about",
+      "submenu": [
+        {
+          "title": "Contact",
+          "url": "/contact",
+          "icon": "contact"
+        },
+        {
+          "title": "Technical Support",
+          "url": "/contact/support",
+          "icon": "support"
+        },
+        {
+          "title": "Request Quote",
+          "url": "/contact/quote",
+          "icon": "quote"
+        },
+        {
+          "title": "Our Location",
+          "url": "/contact/location",
+          "icon": "location"
+        }
+      ]
+    }
+  ],
+  "whatsapp": {
+    "number": "085799520350",
+    "message": "Halo! Saya tertarik dengan jasa pembuatan website Anda."
+  },
+  "brand": {
+    "name": "Kotacom",
+    "logo_light": "/logo-full.svg",
+    "logo_dark": "/logo-full-dark.svg"
+  }
+} 

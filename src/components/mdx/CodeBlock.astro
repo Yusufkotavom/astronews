@@ -1,0 +1,69 @@
+---
+export interface Props {
+  code: string;
+  lang?: string;
+  title?: string;
+  showLineNumbers?: boolean;
+}
+
+const { code, lang = 'text', title, showLineNumbers = false } = Astro.props;
+
+// Generate line numbers if requested
+const lines = code.split('\n');
+const lineNumbers = showLineNumbers ? lines.map((_, i) => i + 1) : null;
+---
+
+<div class="my-6">
+  {title && (
+    <div class="bg-gray-800 text-gray-200 px-4 py-2 rounded-t-lg border-b border-gray-700">
+      <span class="text-sm font-medium">{title}</span>
+      {lang && (
+        <span class="ml-2 text-xs text-gray-400">({lang})</span>
+      )}
+    </div>
+  )}
+  <div class={`relative ${title ? 'rounded-b-lg' : 'rounded-lg'} bg-gray-900 overflow-hidden`}>
+    <div class="flex justify-between items-center px-4 py-2 bg-gray-800 border-b border-gray-700">
+      <span class="text-xs text-gray-400">{lang}</span>
+      <button 
+        class="text-xs text-gray-400 hover:text-white transition-colors"
+        onclick="copyCode(this)"
+        data-code={code}
+      >
+        Copy
+      </button>
+    </div>
+    <div class="p-4 overflow-x-auto">
+      {showLineNumbers ? (
+        <div class="flex">
+          <div class="text-gray-500 text-sm select-none mr-4">
+            {lineNumbers?.map(num => (
+              <div class="text-right">{num}</div>
+            ))}
+          </div>
+          <pre class="text-gray-200 text-sm flex-1"><code>{code}</code></pre>
+        </div>
+      ) : (
+        <pre class="text-gray-200 text-sm"><code>{code}</code></pre>
+      )}
+    </div>
+  </div>
+</div>
+
+<script>
+  function copyCode(button: HTMLButtonElement) {
+    const code = button.getAttribute('data-code');
+    if (code) {
+      navigator.clipboard.writeText(code).then(() => {
+        const originalText = button.textContent;
+        button.textContent = 'Copied!';
+        button.classList.add('text-green-400');
+        
+        setTimeout(() => {
+          button.textContent = originalText;
+          button.classList.remove('text-green-400');
+        }, 2000);
+      });
+    }
+  }
+</script> 

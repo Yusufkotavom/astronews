@@ -1,0 +1,12 @@
+---
+// BaseUrl component - returns the site's base URL
+export interface Props {
+  path?: string;
+}
+
+const { path = '' } = Astro.props;
+const baseUrl = Astro.site?.origin || '';
+const fullUrl = path ? `${baseUrl}${path.startsWith('/') ? path : `/${path}`}` : baseUrl;
+---
+
+{fullUrl} 

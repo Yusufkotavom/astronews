@@ -1,0 +1,211 @@
+---
+// Enhanced SEO component with comprehensive meta tags and schema markup
+export interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  author?: string;
+  publishDate?: string;
+  updateDate?: string;
+  image?: string;
+  imageAlt?: string;
+  category?: string;
+  tags?: string[];
+  type?: 'post' | 'page' | 'category' | 'tag' | 'author' | 'website';
+  schemaMarkup?: string;
+  robots?: string;
+  socialTitle?: string;
+  socialDescription?: string;
+  socialImage?: string;
+  socialType?: string;
+  noindex?: boolean;
+  nofollow?: boolean;
+  language?: string;
+  locale?: string;
+  alternateLanguages?: Array<{ lang: string; url: string }>;
+}
+
+const { 
+  title = 'Kotacom - Professional Web Development',
+  description = 'Professional web development services for your business. We create modern, responsive websites that help you grow your online presence.',
+  canonical = Astro.url.href,
+  author = 'Kotacom Team',
+  publishDate,
+  updateDate,
+  image = '/og-image.jpg',
+  imageAlt,
+  category,
+  tags = [],
+  type = 'website',
+  schemaMarkup,
+  robots = 'index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1',
+  socialTitle = title,
+  socialDescription = description,
+  socialImage = image,
+  socialType = type,
+  noindex = false,
+  nofollow = false,
+  language = 'id',
+  locale = 'id_ID',
+  alternateLanguages = []
+} = Astro.props;
+
+// Build robots meta content
+const robotsContent = noindex ? 'noindex' : robots;
+const finalRobots = nofollow ? `${robotsContent}, nofollow` : robotsContent;
+
+// Ensure image URL is absolute
+const absoluteImage = image.startsWith('http') ? image : `${Astro.site}${image}`;
+const absoluteSocialImage = socialImage.startsWith('http') ? socialImage : `${Astro.site}${socialImage}`;
+
+// Generate additional meta tags
+const metaTags = [
+  // Basic meta tags
+  { name: 'description', content: description },
+  { name: 'author', content: author },
+  { name: 'robots', content: finalRobots },
+  { name: 'generator', content: 'Astro' },
+  
+  // Language and locale
+  { name: 'language', content: language },
+  { property: 'og:locale', content: locale },
+  
+  // Article specific meta tags
+  ...(type === 'post' || type === 'article' ? [
+    { property: 'article:published_time', content: publishDate },
+    { property: 'article:modified_time', content: updateDate || publishDate },
+    { property: 'article:author', content: author },
+    ...(category ? [{ property: 'article:section', content: category }] : []),
+    ...(tags.map(tag => ({ property: 'article:tag', content: tag })))
+  ] : []),
+  
+  // Twitter specific meta tags
+  { name: 'twitter:card', content: 'summary_large_image' },
+  { name: 'twitter:site', content: '@kotacom' },
+  { name: 'twitter:creator', content: '@kotacom' },
+  
+  // Additional SEO meta tags
+  { name: 'google-site-verification', content: 'your-verification-code' },
+  { name: 'msvalidate.01', content: 'your-bing-verification-code' },
+  
+  // Performance and security
+  { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+  { name: 'format-detection', content: 'telephone=no' },
+  { httpEquiv: 'X-UA-Compatible', content: 'IE=edge' }
+];
+
+// Generate Open Graph meta tags
+const ogTags = [
+  { property: 'og:type', content: socialType },
+  { property: 'og:title', content: socialTitle },
+  { property: 'og:description', content: socialDescription },
+  { property: 'og:image', content: absoluteSocialImage },
+  { property: 'og:image:alt', content: imageAlt || socialTitle },
+  { property: 'og:url', content: canonical },
+  { property: 'og:site_name', content: 'Kotacom' },
+  { property: 'og:locale', content: locale },
+  { property: 'og:image:width', content: '1200' },
+  { property: 'og:image:height', content: '630' }
+];
+
+// Generate Twitter meta tags
+const twitterTags = [
+  { name: 'twitter:card', content: 'summary_large_image' },
+  { name: 'twitter:title', content: socialTitle },
+  { name: 'twitter:description', content: socialDescription },
+  { name: 'twitter:image', content: absoluteSocialImage },
+  { name: 'twitter:image:alt', content: imageAlt || socialTitle }
+];
+---
+
+<!-- Enhanced SEO Meta Tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Basic Meta Tags -->
+<title>{title}</title>
+<link rel="canonical" href={canonical}>
+
+{metaTags.map(tag => (
+  tag.httpEquiv ? 
+    <meta http-equiv={tag.httpEquiv} content={tag.content} /> :
+    <meta name={tag.name} content={tag.content} />
+))}
+
+<!-- Open Graph Meta Tags -->
+{ogTags.map(tag => (
+  <meta property={tag.property} content={tag.content} />
+))}
+
+<!-- Twitter Meta Tags -->
+{twitterTags.map(tag => (
+  <meta name={tag.name} content={tag.content} />
+))}
+
+<!-- Alternate Languages -->
+{alternateLanguages.map(lang => (
+  <link rel="alternate" hreflang={lang.lang} href={lang.url} />
+))}
+
+<!-- Schema Markup -->
+{schemaMarkup && (
+  <script type="application/ld+json" set:html={schemaMarkup} />
+)}
+
+<!-- Additional Schema Markup for Organization -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kotacom",
+  "url": "https://www.kotacom.id",
+  "logo": "https://www.kotacom.id/logo-full.svg",
+  "description": "Professional web development services for your business",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Bekasi",
+    "addressRegion": "West Java",
+    "addressCountry": "ID"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+62-857-9952-0350",
+    "contactType": "customer service",
+    "availableLanguage": "Indonesian, English"
+  },
+  "sameAs": [
+    "https://www.facebook.com/kotacom",
+    "https://www.instagram.com/kotacom",
+    "https://www.linkedin.com/company/kotacom"
+  ]
+})} />
+
+<!-- Website Schema Markup -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Kotacom",
+  "url": "https://www.kotacom.id",
+  "description": "Professional web development services for your business",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kotacom"
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "https://www.kotacom.id/search?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+})} />
+
+<!-- Theme script to avoid FOUC -->
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script>

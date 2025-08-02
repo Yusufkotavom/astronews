@@ -14,7 +14,50 @@
           "type": "string"
         },
         "publishDate": {
-          "type": "string"
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "integer",
+                  "format": "unix-time"
+                }
+              ]
+            }
+          ]
+        },
+        "updateDate": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "integer",
+                  "format": "unix-time"
+                }
+              ]
+            }
+          ]
         },
         "category": {
           "type": "string"
@@ -22,22 +65,21 @@
         "image": {
           "type": "string"
         },
-        "draft": {
-          "type": "boolean",
-          "default": false
+        "imageAlt": {
+          "type": "string"
         },
-        "featured": {
-          "type": "boolean",
-          "default": false
+        "draft": {
+          "type": "boolean"
         },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "title"
+        "title",
+        "description"
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"
