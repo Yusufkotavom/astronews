@@ -1,0 +1,96 @@
+---
+// Enhanced Head component for comprehensive SEO
+export interface Props {
+  title?: string;
+  description?: string;
+  author?: string;
+  canonical?: string;
+  robots?: string;
+  schemaMarkup?: string;
+  publishDate?: string;
+  updateDate?: string;
+  category?: string;
+  tags?: string[];
+  image?: string;
+  imageAlt?: string;
+  type?: 'post' | 'page' | 'category' | 'tag' | 'author';
+}
+
+const { 
+  title = 'Kotacom - Professional Web Development',
+  description = 'Professional web development services for your business. We create modern, responsive websites that help you grow your online presence.',
+  author = 'Kotacom Team',
+  canonical = Astro.url.href,
+  robots = 'index, follow',
+  schemaMarkup,
+  publishDate,
+  updateDate,
+  category,
+  tags,
+  image,
+  imageAlt,
+  type
+} = Astro.props;
+---
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content={description}>
+<meta name="author" content={author}>
+<meta name="generator" content="Astro">
+
+<title>{title}</title>
+
+<link rel="canonical" href={canonical}>
+
+{robots && <meta name="robots" content={robots} />}
+
+{/* Article-specific meta tags */}
+{type === 'post' && publishDate && (
+  <meta property="article:published_time" content={publishDate} />
+)}
+
+{type === 'post' && updateDate && (
+  <meta property="article:modified_time" content={updateDate} />
+)}
+
+{type === 'post' && author && (
+  <meta property="article:author" content={author} />
+)}
+
+{type === 'post' && category && (
+  <meta property="article:section" content={category} />
+)}
+
+{type === 'post' && tags && tags.length > 0 && (
+  tags.map((tag: string) => (
+    <meta property="article:tag" content={tag} />
+  ))
+)}
+
+{/* Image meta tags */}
+{image && (
+  <meta property="og:image" content={image} />
+)}
+
+{imageAlt && (
+  <meta property="og:image:alt" content={imageAlt} />
+)}
+
+{/* Schema Markup for Rich Snippets */}
+{schemaMarkup && (
+  <script type="application/ld+json" set:html={schemaMarkup} />
+)}
+
+<!-- Theme script to avoid FOUC -->
+<script>
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  const savedTheme = localStorage.getItem('theme');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  
+  if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+    document.documentElement.classList.add('dark');
+  } else {
+    document.documentElement.classList.remove('dark');
+  }
+</script> 

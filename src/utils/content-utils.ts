@@ -7,14 +7,24 @@ let pagesCache: any[] | null = null;
 
 export async function getCachedPosts() {
   if (!postsCache) {
-    postsCache = await getCollection('post');
+    try {
+      postsCache = await getCollection('post');
+    } catch (error) {
+      console.warn('Post collection not found, using empty array');
+      postsCache = [];
+    }
   }
   return postsCache;
 }
 
 export async function getCachedPages() {
   if (!pagesCache) {
-    pagesCache = await getCollection('page');
+    try {
+      pagesCache = await getCollection('page');
+    } catch (error) {
+      console.warn('Page collection not found, using empty array');
+      pagesCache = [];
+    }
   }
   return pagesCache;
 }

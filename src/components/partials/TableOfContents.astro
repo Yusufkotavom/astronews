@@ -1,0 +1,99 @@
+---
+export interface Props {
+  headings: Array<{
+    depth: number;
+    slug: string;
+    text: string;
+  }>;
+}
+
+const { headings } = Astro.props;
+
+// Filter headings to only include h2 and h3
+const tocHeadings = headings.filter(({ depth }) => depth > 1 && depth < 4);
+
+// Group headings by h2 and their nested h3s
+const groupedHeadings = tocHeadings.reduce((acc, heading) => {
+  if (heading.depth === 2) {
+    acc.push({
+      ...heading,
+      children: []
+    });
+  } else if (heading.depth === 3 && acc.length > 0) {
+    acc[acc.length - 1].children.push(heading);
+  }
+  return acc;
+}, [] as Array<{ depth: number; slug: string; text: string; children: Array<{ depth: number; slug: string; text: string }> }>);
+---
+
+{tocHeadings.length > 0 && (
+  <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-6 mb-8">
+    <div class="flex items-center justify-between mb-4">
+      <h2 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center">
+        <svg class="w-5 h-5 mr-2 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd" />
+        </svg>
+        Table of Contents
+      </h2>
+      <button 
+        id="toc-toggle"
+        class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 transition-colors"
+        aria-label="Toggle table of contents"
+      >
+        <svg id="toc-icon" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </button>
+    </div>
+    
+    <div id="toc-content" class="hidden">
+      <nav class="space-y-2">
+        {groupedHeadings.map((heading) => (
+          <div class="space-y-1">
+            <a 
+              href={`#${heading.slug}`}
+              class="block text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 font-medium transition-colors"
+            >
+              {heading.text}
+            </a>
+            {heading.children.length > 0 && (
+              <div class="ml-4 space-y-1">
+                {heading.children.map((child) => (
+                  <a 
+                    href={`#${child.slug}`}
+                    class="block text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 text-sm transition-colors"
+                  >
+                    {child.text}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </nav>
+    </div>
+  </div>
+)}
+
+<script>
+  // Table of Contents Toggle Functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const toggleBtn = document.getElementById('toc-toggle');
+    const tocContent = document.getElementById('toc-content');
+    const tocIcon = document.getElementById('toc-icon');
+    
+    if (toggleBtn && tocContent && tocIcon) {
+      toggleBtn.addEventListener('click', function() {
+        const isHidden = tocContent.classList.contains('hidden');
+        
+        if (isHidden) {
+          tocContent.classList.remove('hidden');
+          tocIcon.innerHTML = '<path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />';
+        } else {
+          tocContent.classList.add('hidden');
+          tocIcon.innerHTML = '<path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />';
+        }
+      });
+    }
+  });
+</script> 

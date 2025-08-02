@@ -13,48 +13,124 @@
         "author": {
           "type": "string"
         },
-        "publishDate": {
+        "authorBio": {
           "type": "string"
+        },
+        "authorImage": {
+          "type": "string"
+        },
+        "publishDate": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "integer",
+                  "format": "unix-time"
+                }
+              ]
+            }
+          ]
+        },
+        "updateDate": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                {
+                  "type": "string",
+                  "format": "date"
+                },
+                {
+                  "type": "integer",
+                  "format": "unix-time"
+                }
+              ]
+            }
+          ]
         },
         "category": {
           "type": "string"
         },
         "tags": {
-          "anyOf": [
-            {
-              "type": "array",
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "type": "string"
-            },
-            {
-              "type": "null"
-            }
-          ],
-          "default": []
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "image": {
           "type": "string"
         },
-        "draft": {
-          "type": "boolean",
-          "default": false
+        "imageAlt": {
+          "type": "string"
         },
         "featured": {
-          "type": "boolean",
-          "default": false
+          "type": "boolean"
+        },
+        "draft": {
+          "type": "boolean"
+        },
+        "difficulty": {
+          "type": "string",
+          "enum": [
+            "Beginner",
+            "Intermediate",
+            "Advanced"
+          ]
+        },
+        "readingTime": {
+          "type": "number"
+        },
+        "tableOfContents": {
+          "type": "boolean"
+        },
+        "series": {
+          "type": "string"
+        },
+        "seriesOrder": {
+          "type": "number"
+        },
+        "lang": {
+          "type": "string"
+        },
+        "keywords": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "relatedPosts": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "title"
+        "title",
+        "description",
+        "publishDate"
       ],
-      "additionalProperties": true
+      "additionalProperties": false
     }
   },
   "$schema": "http://json-schema.org/draft-07/schema#"

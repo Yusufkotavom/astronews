@@ -1,0 +1,659 @@
+---
+// Astro Template for Website Content
+// Import JSON data directly
+import data from '../data/jasa_pembuatan_website_bekasi_meta_with_images.json';
+
+// TypeScript interfaces for type safety
+interface Business {
+  type: string;
+  address: string;
+  phone: string;
+  description: string;
+}
+
+interface Hero {
+  badge_text: string;
+  title: string;
+  subtitle: string;
+  feature: Array<{
+    point: string;
+    description: string;
+  }>;
+  image_url: string;
+}
+
+interface Features {
+  badge_text: string;
+  title: string;
+  subtitle: string;
+  point: Array<{
+    title: string;
+    description: string;
+  }>;
+  image_url: string;
+}
+
+interface Info {
+  img_alt: string;
+  badge_text: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  point: string[];
+  image_url: string;
+}
+
+interface Services {
+  badge_text: string;
+  title: string;
+  subtitle: string;
+  point: Array<{
+    title: string;
+    description: string;
+    feature: string[];
+  }>;
+}
+
+interface WhyUs {
+  badge_text: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  point: Array<{
+    title: string;
+    description: string;
+  }>;
+}
+
+interface WhatYouGet {
+  title: string;
+  subtitle: string;
+  points: Array<{
+    title: string;
+    description: string;
+  }>;
+}
+
+interface WhyNeed {
+  badge_text: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  point: Array<{
+    title: string;
+    description: string;
+  }>;
+}
+
+interface Pricing {
+  badge_text: string;
+  title: string;
+  description: string;
+  plan: Array<{
+    badge: string;
+    title: string;
+    price: string;
+    description: string;
+    feature: string[];
+  }>;
+}
+
+interface Portfolio {
+  title: string;
+  description: string;
+  list: Array<{
+    type: string;
+    title: string;
+    description: string;
+  }>;
+}
+
+
+interface Testimonials {
+  badge_text: string;
+  title: string;
+  subtitle: string;
+  card: Array<{
+    headline: string;
+    quote: string;
+    name: string;
+    position: string;
+  }>;
+}
+
+interface FAQ {
+  badge_text: string;
+  title: string;
+  subtitle: string;
+  points: Array<{
+    question: string;
+    answer: string;
+  }>;
+}
+
+interface Content {
+  title: string;
+  subtitle: string;
+  description: string;
+  image_url: string;
+}
+
+interface Local {
+  title: string;
+  subtitle: string;
+  description: string;
+  city: Array<{
+    title: string;
+    description: string;
+  }>;
+}
+
+interface KabupatenKota {
+  nama: string;
+  description: string;
+  kecamatan: Array<{
+    nama: string;
+    link: string;
+  }>;
+}
+
+interface FinalCTA {
+  badge_text: string;
+  title: string;
+  subtitle: string;
+}
+
+interface SEOMeta {
+  seo_data: {
+    metadata: {
+      meta_title: string;
+      meta_description: string;
+      canonical_url: string;
+    };
+    schema_markup: {
+      json_ld_script: string;
+    };
+  };
+}
+
+interface GeneratedImages {
+  generated_at: string;
+  total_images: number;
+  search_keyword: string;
+  source: string;
+}
+
+// Extract data with type safety
+const {
+  business,
+  hero,
+  features,
+  info,
+  services,
+  why_us,
+  what_you_get,
+  why_need,
+  pricing,
+  portfolio,
+  testimonials,
+  faq,
+  content,
+  local,    
+  kabupaten_kota,
+  final_cta,
+  seo_meta,
+  keyword,
+  generated_images
+}: {
+  business: Business;
+  hero: Hero;
+  features: Features;
+  info: Info;
+  services: Services;
+  why_us: WhyUs;
+  what_you_get: WhatYouGet;
+  why_need: WhyNeed;
+  pricing: Pricing;
+  portfolio: Portfolio;
+  testimonials: Testimonials;
+  faq: FAQ;
+  content: Content;
+  local: Local;
+  kabupaten_kota: KabupatenKota[];
+  final_cta: FinalCTA;
+  seo_meta: SEOMeta;
+  keyword: string;
+  generated_images: GeneratedImages;
+} = data;
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>{seo_meta.seo_data.metadata.meta_title}</title>
+    <meta name="description" content={seo_meta.seo_data.metadata.meta_description} />
+    <link rel="canonical" href={seo_meta.seo_data.metadata.canonical_url} />
+    
+    <!-- Schema Markup -->
+    <script type="application/ld+json" set:html={seo_meta.seo_data.schema_markup.json_ld_script}></script>
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content={business.type} />
+    <meta property="og:description" content={business.description} />
+    <meta property="og:phone" content={business.phone} />
+    <meta property="og:address" content={business.address} />
+    
+    <!-- Tailwind CSS is handled by @astrojs/tailwind integration -->
+    
+    <!-- Custom Styles -->
+    <style>
+        .badge {
+            @apply inline-block px-3 py-1 text-sm font-medium text-blue-600 bg-blue-100 rounded-full;
+        }
+        .btn-primary {
+            @apply inline-flex items-center px-6 py-3 text-base font-medium text-white bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+        }
+        .btn-secondary {
+            @apply inline-flex items-center px-6 py-3 text-base font-medium text-blue-600 bg-white border border-blue-600 rounded-md shadow-sm hover:bg-blue-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header Section -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div class="business-info">
+                <h1 class="text-3xl font-bold text-gray-900">{business.type}</h1>
+                <p class="mt-2 text-gray-600">{business.description}</p>
+                <div class="mt-4 contact-info">
+                    <p class="text-gray-600">📞 {business.phone}</p>
+                    <p class="text-gray-600">📍 {business.address}</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="hero-content">
+                    <span class="badge">{hero.badge_text}</span>
+                    <h1 class="mt-4 text-4xl font-bold text-gray-900">{hero.title}</h1>
+                    <p class="mt-4 text-xl text-gray-600">{hero.subtitle}</p>
+                    
+                    <!-- Hero Features -->
+                    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="feature-item">
+                            <h3 class="text-lg font-semibold text-gray-900">{hero.feature[0].point}</h3>
+                            <p class="mt-2 text-gray-600">{hero.feature[0].description}</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="text-lg font-semibold text-gray-900">{hero.feature[1].point}</h3>
+                            <p class="mt-2 text-gray-600">{hero.feature[1].description}</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="text-lg font-semibold text-gray-900">{hero.feature[2].point}</h3>
+                            <p class="mt-2 text-gray-600">{hero.feature[2].description}</p>
+                        </div>
+                        <div class="feature-item">
+                            <h3 class="text-lg font-semibold text-gray-900">{hero.feature[3].point}</h3>
+                            <p class="mt-2 text-gray-600">{hero.feature[3].description}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src={hero.image_url} alt={hero.title} class="w-full h-auto rounded-lg shadow-lg" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <span class="badge">{features.badge_text}</span>
+                <h2 class="mt-4 text-3xl font-bold text-gray-900">{features.title}</h2>
+                <p class="mt-4 text-xl text-gray-600">{features.subtitle}</p>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900">{features.point[0].title}</h3>
+                    <p class="mt-4 text-gray-600">{features.point[0].description}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900">{features.point[1].title}</h3>
+                    <p class="mt-4 text-gray-600">{features.point[1].description}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900">{features.point[2].title}</h3>
+                    <p class="mt-4 text-gray-600">{features.point[2].description}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900">{features.point[3].title}</h3>
+                    <p class="mt-4 text-gray-600">{features.point[3].description}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900">{features.point[4].title}</h3>
+                    <p class="mt-4 text-gray-600">{features.point[4].description}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900">{features.point[5].title}</h3>
+                    <p class="mt-4 text-gray-600">{features.point[5].description}</p>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <img src={features.image_url} alt={features.title} class="w-full max-w-4xl mx-auto rounded-lg shadow-lg" />
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="about-text">
+                    <span class="badge">{info.badge_text}</span>
+                    <h2 class="mt-4 text-3xl font-bold text-gray-900">{info.title}</h2>
+                    <h3 class="mt-4 text-xl text-gray-600">{info.subtitle}</h3>
+                    <p class="mt-6 text-gray-600">{info.description}</p>
+                    
+                    <ul class="mt-8 space-y-3">
+                        <li class="flex items-center text-gray-600">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                            {info.point[0]}
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                            {info.point[1]}
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                            {info.point[2]}
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                            {info.point[3]}
+                        </li>
+                        <li class="flex items-center text-gray-600">
+                            <span class="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                            {info.point[4]}
+                        </li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src={info.image_url} alt={info.img_alt} class="w-full h-auto rounded-lg shadow-lg" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <span class="badge">{services.badge_text}</span>
+                <h2 class="mt-4 text-3xl font-bold text-gray-900">{services.title}</h2>
+                <p class="mt-4 text-xl text-gray-600">{services.subtitle}</p>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900">{services.point[0].title}</h3>
+                    <p class="mt-4 text-gray-600">{services.point[0].description}</p>
+                    <ul class="mt-6 space-y-2">
+                        <li class="text-gray-600">• {services.point[0].feature[0]}</li>
+                        <li class="text-gray-600">• {services.point[0].feature[1]}</li>
+                        <li class="text-gray-600">• {services.point[0].feature[2]}</li>
+                        <li class="text-gray-600">• {services.point[0].feature[3]}</li>
+                        <li class="text-gray-600">• {services.point[0].feature[4]}</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900">{services.point[1].title}</h3>
+                    <p class="mt-4 text-gray-600">{services.point[1].description}</p>
+                    <ul class="mt-6 space-y-2">
+                        <li class="text-gray-600">• {services.point[1].feature[0]}</li>
+                        <li class="text-gray-600">• {services.point[1].feature[1]}</li>
+                        <li class="text-gray-600">• {services.point[1].feature[2]}</li>
+                        <li class="text-gray-600">• {services.point[1].feature[3]}</li>
+                        <li class="text-gray-600">• {services.point[1].feature[4]}</li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <h3 class="text-xl font-semibold text-gray-900">{services.point[2].title}</h3>
+                    <p class="mt-4 text-gray-600">{services.point[2].description}</p>
+                    <ul class="mt-6 space-y-2">
+                        <li class="text-gray-600">• {services.point[2].feature[0]}</li>
+                        <li class="text-gray-600">• {services.point[2].feature[1]}</li>
+                        <li class="text-gray-600">• {services.point[2].feature[2]}</li>
+                        <li class="text-gray-600">• {services.point[2].feature[3]}</li>
+                        <li class="text-gray-600">• {services.point[2].feature[4]}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <span class="badge">{why_us.badge_text}</span>
+                <h2 class="mt-4 text-3xl font-bold text-gray-900">{why_us.title}</h2>
+                <p class="mt-4 text-xl text-gray-600">{why_us.subtitle}</p>
+            </div>
+            <p class="mt-8 text-center text-gray-600 max-w-3xl mx-auto">{why_us.description}</p>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900">{why_us.point[0].title}</h3>
+                    <p class="mt-4 text-gray-600">{why_us.point[0].description}</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900">{why_us.point[1].title}</h3>
+                    <p class="mt-4 text-gray-600">{why_us.point[1].description}</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900">{why_us.point[2].title}</h3>
+                    <p class="mt-4 text-gray-600">{why_us.point[2].description}</p>
+                </div>
+                <div class="text-center">
+                    <h3 class="text-xl font-semibold text-gray-900">{why_us.point[3].title}</h3>
+                    <p class="mt-4 text-gray-600">{why_us.point[3].description}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="bg-gray-50 py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <span class="badge">{pricing.badge_text}</span>
+                <h2 class="mt-4 text-3xl font-bold text-gray-900">{pricing.title}</h2>
+                <p class="mt-4 text-xl text-gray-600">{pricing.description}</p>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Basic Plan -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <span class="inline-block px-3 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded-full">{pricing.plan[0].badge}</span>
+                    <h3 class="mt-4 text-2xl font-bold text-gray-900">{pricing.plan[0].title}</h3>
+                    <div class="mt-4 text-3xl font-bold text-blue-600">{pricing.plan[0].price}</div>
+                    <p class="mt-4 text-gray-600">{pricing.plan[0].description}</p>
+                    <ul class="mt-8 space-y-3">
+                        <li class="text-gray-600">✓ {pricing.plan[0].feature[0]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[0].feature[1]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[0].feature[2]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[0].feature[3]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[0].feature[4]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[0].feature[5]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[0].feature[6]}</li>
+                    </ul>
+                    <button class="mt-8 w-full btn-primary">Pilih Paket</button>
+                </div>
+                
+                <!-- Standard Plan -->
+                <div class="bg-white p-8 rounded-lg shadow-md border-2 border-blue-600 relative">
+                    <span class="inline-block px-3 py-1 text-sm font-medium text-blue-600 bg-blue-100 rounded-full">{pricing.plan[1].badge}</span>
+                    <h3 class="mt-4 text-2xl font-bold text-gray-900">{pricing.plan[1].title}</h3>
+                    <div class="mt-4 text-3xl font-bold text-blue-600">{pricing.plan[1].price}</div>
+                    <p class="mt-4 text-gray-600">{pricing.plan[1].description}</p>
+                    <ul class="mt-8 space-y-3">
+                        <li class="text-gray-600">✓ {pricing.plan[1].feature[0]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[1].feature[1]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[1].feature[2]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[1].feature[3]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[1].feature[4]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[1].feature[5]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[1].feature[6]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[1].feature[7]}</li>
+                    </ul>
+                    <button class="mt-8 w-full btn-primary">Pilih Paket</button>
+                </div>
+                
+                <!-- Premium Plan -->
+                <div class="bg-white p-8 rounded-lg shadow-md">
+                    <span class="inline-block px-3 py-1 text-sm font-medium text-gray-600 bg-gray-100 rounded-full">{pricing.plan[2].badge}</span>
+                    <h3 class="mt-4 text-2xl font-bold text-gray-900">{pricing.plan[2].title}</h3>
+                    <div class="mt-4 text-3xl font-bold text-blue-600">{pricing.plan[2].price}</div>
+                    <p class="mt-4 text-gray-600">{pricing.plan[2].description}</p>
+                    <ul class="mt-8 space-y-3">
+                        <li class="text-gray-600">✓ {pricing.plan[2].feature[0]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[2].feature[1]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[2].feature[2]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[2].feature[3]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[2].feature[4]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[2].feature[5]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[2].feature[6]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[2].feature[7]}</li>
+                        <li class="text-gray-600">✓ {pricing.plan[2].feature[8]}</li>
+                    </ul>
+                    <button class="mt-8 w-full btn-primary">Pilih Paket</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="bg-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <span class="badge">{testimonials.badge_text}</span>
+                <h2 class="mt-4 text-3xl font-bold text-gray-900">{testimonials.title}</h2>
+                <p class="mt-4 text-xl text-gray-600">{testimonials.subtitle}</p>
+            </div>
+            
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-900">{testimonials.card[0].headline}</h3>
+                    <blockquote class="mt-4 text-gray-600 italic">"{testimonials.card[0].quote}"</blockquote>
+                    <div class="mt-6">
+                        <strong class="text-gray-900">{testimonials.card[0].name}</strong>
+                        <span class="block text-gray-600">{testimonials.card[0].position}</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-900">{testimonials.card[1].headline}</h3>
+                    <blockquote class="mt-4 text-gray-600 italic">"{testimonials.card[1].quote}"</blockquote>
+                    <div class="mt-6">
+                        <strong class="text-gray-900">{testimonials.card[1].name}</strong>
+                        <span class="block text-gray-600">{testimonials.card[1].position}</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold text-gray-900">{testimonials.card[2].headline}</h3>
+                    <blockquote class="mt-4 text-gray-600 italic">"{testimonials.card[2].quote}"</blockquote>
+                    <div class="mt-6">
+                        <strong class="text-gray-900">{testimonials.card[2].name}</strong>
+                        <span class="block text-gray-600">{testimonials.card[2].position}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="bg-gray-50 py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <span class="badge">{faq.badge_text}</span>
+                <h2 class="mt-4 text-3xl font-bold text-gray-900">{faq.title}</h2>
+                <p class="mt-4 text-xl text-gray-600">{faq.subtitle}</p>
+            </div>
+            
+            <div class="mt-12 space-y-6">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-900">{faq.points[0].question}</h3>
+                    <p class="mt-4 text-gray-600">{faq.points[0].answer}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-900">{faq.points[1].question}</h3>
+                    <p class="mt-4 text-gray-600">{faq.points[1].answer}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-900">{faq.points[2].question}</h3>
+                    <p class="mt-4 text-gray-600">{faq.points[2].answer}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-900">{faq.points[3].question}</h3>
+                    <p class="mt-4 text-gray-600">{faq.points[3].answer}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-900">{faq.points[4].question}</h3>
+                    <p class="mt-4 text-gray-600">{faq.points[4].answer}</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <h3 class="text-lg font-semibold text-gray-900">{faq.points[5].question}</h3>
+                    <p class="mt-4 text-gray-600">{faq.points[5].answer}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="bg-blue-600 py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <span class="inline-block px-3 py-1 text-sm font-medium text-blue-600 bg-white rounded-full">{final_cta.badge_text}</span>
+            <h2 class="mt-4 text-3xl font-bold text-white">{final_cta.title}</h2>
+            <p class="mt-4 text-xl text-blue-100">{final_cta.subtitle}</p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+                <a href={`tel:${business.phone}`} class="btn-primary">Hubungi Sekarang</a>
+                <a href={`https://wa.me/${business.phone}`} class="btn-secondary">WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="footer-info">
+                    <h3 class="text-xl font-bold">{business.type}</h3>
+                    <p class="mt-4 text-gray-300">{business.description}</p>
+                    <div class="mt-6 contact-details">
+                        <p class="text-gray-300">📞 {business.phone}</p>
+                        <p class="text-gray-300">📍 {business.address}</p>
+                    </div>
+                </div>
+                
+                <div class="footer-meta text-gray-300">
+                    <p>Keyword: {keyword}</p>
+                    <p>Generated: {generated_images.generated_at}</p>
+                    <p>Images: {generated_images.total_images} from {generated_images.source}</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

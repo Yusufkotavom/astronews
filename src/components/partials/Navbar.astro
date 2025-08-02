@@ -1,0 +1,682 @@
+---
+// Modern Navbar component for Astro
+
+export interface Props {
+  variant?: 'default' | 'background';
+  brandName?: string;
+  whatsappNumber?: string;
+  whatsappMessage?: string;
+}
+
+// Type definitions for menu data
+interface MenuItem {
+  title: string;
+  url: string;
+  icon: string;
+  submenu?: MenuItem[];
+}
+
+interface MenuData {
+  menu_items: MenuItem[];
+  whatsapp: {
+    number: string;
+    message: string;
+  };
+  brand: {
+    name: string;
+    logo_light: string;
+    logo_dark: string;
+  };
+}
+
+// Read menu data from main_menu.json at runtime
+const menuData: MenuData = {
+  menu_items: [
+    {
+      title: "Home",
+      url: "/",
+      icon: "home",
+      submenu: [
+        {
+          title: "Dashboard",
+          url: "/",
+          icon: "dashboard"
+        },
+        {
+          title: "Features",
+          url: "/features",
+          icon: "features"
+        },
+        {
+          title: "Showcase",
+          url: "/showcase",
+          icon: "showcase"
+        }
+      ]
+    },
+    {
+      title: "Services",
+      url: "/services",
+      icon: "services",
+      submenu: [
+        {
+          title: "All Services",
+          url: "/services",
+          icon: "web",
+          submenu: [
+            {
+              title: "IT Service & Maintenance",
+              url: "/services/it-service",
+              icon: "it-service"
+            },
+            {
+              title: "Web Development",
+              url: "/services/website",
+              icon: "website"
+            },
+            {
+              title: "Service Printer",
+              url: "/services/printer",
+              icon: "printer"
+            },
+            {
+              title: "Service Macbook",
+              url: "/services/macbook",
+              icon: "macbook"
+            },
+            {
+              title: "Service Server",
+              url: "/services/server",
+              icon: "server"
+            },
+            {
+              title: "Service Network",
+              url: "/services/network",
+              icon: "network"
+            }
+          ]
+        },
+        {
+          title: "Portfolio",
+          url: "/portfolio",
+          icon: "mobile"
+        },
+        {
+          title: "jasa pembuatan website",
+          url: "/services/website",
+          icon: "website"
+        },
+        {
+          title: "jasa pembuatan website",
+          url: "/services/website",
+          icon: "website"
+        },
+        {
+          title: "Jasa Pembuatan Software",
+          url: "/services/software",
+          icon: "software"
+        }
+      ]
+    },
+    {
+      title: "Blog",
+      url: "/blog",
+      icon: "blog",
+      submenu: [
+        {
+          title: "All Posts",
+          url: "/blog",
+          icon: "company"
+        },
+        {
+          title: "Featured Posts",
+          url: "/blog/featured",
+          icon: "team"
+        }
+      ]
+    },
+    {
+      title: "Pricing",
+      url: "/pricing",
+      icon: "pricing",
+      submenu: [
+        {
+          title: "Website Packages",
+          url: "/pricing/",
+          icon: "website"
+        },
+        {
+          title: "E-Commerce Plans",
+          url: "/pricing/ecommerce",
+          icon: "ecommerce"
+        },
+        {
+          title: "Maintenance Plans",
+          url: "/pricing/maintenance",
+          icon: "maintenance"
+        },
+        {
+          title: "Custom Quote",
+          url: "/pricing/custom",
+          icon: "custom"
+        }
+      ]
+    },
+    {
+      title: "About",
+      url: "/about",
+      icon: "about",
+      submenu: [
+        {
+          title: "Contact",
+          url: "/contact",
+          icon: "contact"
+        },
+        {
+          title: "Technical Support",
+          url: "/contact/support",
+          icon: "support"
+        },
+        {
+          title: "Request Quote",
+          url: "/contact/quote",
+          icon: "quote"
+        },
+        {
+          title: "Our Location",
+          url: "/contact/location",
+          icon: "location"
+        }
+      ]
+    }
+  ],
+  whatsapp: {
+    number: "085799520350",
+    message: "Halo! Saya tertarik dengan jasa pembuatan website Anda."
+  },
+  brand: {
+    name: "Kotacom",
+    logo_light: "/logo-full.svg",
+    logo_dark: "/logo-full-dark.svg"
+  }
+};
+
+const { 
+  variant = 'default', 
+  brandName = menuData.brand?.name || 'Kotacom',
+  whatsappNumber = menuData.whatsapp?.number || '085799520350',
+  whatsappMessage = menuData.whatsapp?.message || 'Halo! Saya tertarik dengan jasa pembuatan website Anda.'
+} = Astro.props;
+
+// Create WhatsApp URL
+const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+// Get menu items from JSON data
+const menuItems = menuData.menu_items || [];
+---
+
+<header>
+  <!-- Main Navbar -->
+  <nav id="mainNavbar" data-sticky="false" class={`bg-white/95 backdrop-blur-sm dark:bg-gray-900/95 border-b border-gray-200 dark:border-gray-700 py-3 fixed w-full z-40 top-0 start-0 transition-all duration-300 ${variant === 'background' ? 'group' : ''}`}>
+    <div class="flex items-center justify-between mx-auto max-w-screen-xl px-4">
+      <!-- Left Side - Logo and Mobile Menu Button -->
+      <div class="flex items-center space-x-4">
+        <!-- Mobile Menu Button (Top Left) -->
+        <button 
+          id="mobile-menu-button" 
+          type="button" 
+          aria-label="Open main menu"
+          aria-controls="mobile-menu-full" 
+          aria-expanded="false"
+          class="lg:hidden inline-flex items-center p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+
+        <!-- Logo -->
+        <a href="/" class="flex items-center">
+          <img src={menuData.brand?.logo_light || "/logo-full.svg"} class="h-8 w-auto dark:hidden" alt={`${brandName} Logo`} />
+          <img src={menuData.brand?.logo_dark || "/logo-full-dark.svg"} class="h-8 w-auto hidden dark:block" alt={`${brandName} Logo`} />
+        </a>
+      </div>
+
+      <!-- Center - Desktop Navigation -->
+      <div class="hidden lg:flex items-center space-x-8">
+        {menuItems.map((item: MenuItem) => (
+          <div class="relative group">
+            <a href={item.url} class="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 font-medium transition-colors duration-200">
+              {item.title}
+            </a>
+            {item.submenu && (
+              <div class="absolute left-0 mt-2 w-48 bg-white dark:bg-gray-800 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50 border border-gray-200 dark:border-gray-700">
+                <div class="py-2">
+                  {item.submenu.map((subItem: MenuItem) => (
+                    <a href={subItem.url} class="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700">
+                      {subItem.title}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Right Side - Desktop Actions -->
+      <div class="hidden lg:flex items-center space-x-4">
+        <!-- Search Button -->
+        <button 
+          id="searchToggle" 
+          type="button" 
+          aria-label="Search articles"
+          class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors duration-200"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button 
+          id="themeToggle" 
+          type="button" 
+          aria-label="Toggle dark mode"
+          class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors duration-200"
+        >
+          <svg id="themeToggleDarkIcon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="themeToggleLightIcon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+        <!-- WhatsApp Button - Desktop -->
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-300 dark:focus:ring-green-900 transition-colors duration-200">
+          <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+          </svg>
+          WhatsApp
+        </a>
+      </div>
+
+      <!-- Mobile Header Actions (Right Side) -->
+      <div class="lg:hidden flex items-center space-x-2">
+        <!-- Search Button - Mobile -->
+        <button 
+          id="mobileSearchToggle" 
+          type="button" 
+          aria-label="Search articles"
+          class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors duration-200"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </button>
+
+        <!-- Theme Toggle Button - Mobile -->
+        <button 
+          id="mobileThemeToggle" 
+          type="button" 
+          aria-label="Toggle dark mode"
+          class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors duration-200"
+        >
+          <svg id="mobileThemeToggleDarkIcon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+          </svg>
+          <svg id="mobileThemeToggleLightIcon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path>
+          </svg>
+        </button>
+
+        <!-- WhatsApp Button - Mobile -->
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-3 py-2 text-sm font-medium text-white bg-green-600 rounded-lg hover:bg-green-700 focus:ring-4 focus:ring-green-300 dark:focus:ring-green-900 transition-colors duration-200">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Modern Full Screen Mobile Menu -->
+  <div id="mobile-menu-full" class="fixed inset-0 z-50 hidden bg-white dark:bg-gray-900">
+    <!-- Top Section - Header with Close Button -->
+    <div class="flex items-center justify-between p-6 border-b border-gray-200 dark:border-gray-700">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src={menuData.brand?.logo_light || "/logo-full.svg"} class="h-8 w-auto dark:hidden" alt={`${brandName} Logo`} />
+        <img src={menuData.brand?.logo_dark || "/logo-full-dark.svg"} class="h-8 w-auto hidden dark:block" alt={`${brandName} Logo`} />
+      </div>
+
+      <!-- Close Button -->
+      <button 
+        id="mobile-menu-close" 
+        type="button" 
+        aria-label="Close main menu"
+        class="text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 p-2 rounded-lg transition-colors duration-200"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Middle Section - Navigation Links with Accordion -->
+    <div class="flex-1 p-6 overflow-y-auto">
+      <nav class="space-y-2">
+        {menuItems.map((item: MenuItem, index: number) => (
+          <div class="mobile-menu-item">
+            {item.submenu ? (
+              <!-- Accordion Item with Submenu -->
+              <div class="mobile-accordion-item">
+                <button 
+                  class="mobile-accordion-toggle w-full flex items-center justify-between px-4 py-3 text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200"
+                  data-accordion-target={`mobile-submenu-${index}`}
+                  aria-expanded="false"
+                  aria-controls={`mobile-submenu-${index}`}
+                >
+                  <span class="flex items-center">
+                    <svg class="w-5 h-5 mr-3 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                    </svg>
+                    {item.title}
+                  </span>
+                  <svg class="w-5 h-5 text-gray-500 dark:text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div 
+                  id={`mobile-submenu-${index}`} 
+                  class="mobile-accordion-content hidden ml-8 mt-2 space-y-1"
+                >
+                  {item.submenu.map((subItem: MenuItem, subIndex: number) => (
+                    subItem.submenu ? (
+                      <!-- Nested Accordion for Sub-submenu -->
+                      <div class="mobile-accordion-item">
+                        <button 
+                          class="mobile-accordion-toggle w-full flex items-center justify-between px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200"
+                          data-accordion-target={`mobile-subsubmenu-${index}-${subIndex}`}
+                          aria-expanded="false"
+                          aria-controls={`mobile-subsubmenu-${index}-${subIndex}`}
+                        >
+                          <span>{subItem.title}</span>
+                          <svg class="w-4 h-4 text-gray-500 dark:text-gray-400 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                          </svg>
+                        </button>
+                        <div 
+                          id={`mobile-subsubmenu-${index}-${subIndex}`} 
+                          class="mobile-accordion-content hidden ml-4 mt-1 space-y-1"
+                        >
+                          {subItem.submenu.map((subSubItem: MenuItem) => (
+                            <a href={subSubItem.url} class="block px-4 py-2 text-sm text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200">
+                              {subSubItem.title}
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    ) : (
+                      <a href={subItem.url} class="block px-4 py-2 text-base text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200">
+                        {subItem.title}
+                      </a>
+                    )
+                  ))}
+                </div>
+              </div>
+            ) : (
+              <!-- Simple Link without Submenu -->
+              <a href={item.url} class="flex items-center px-4 py-3 text-lg font-medium text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors duration-200">
+                <svg class="w-5 h-5 mr-3 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+                {item.title}
+              </a>
+            )}
+          </div>
+        ))}
+      </nav>
+
+      <!-- Services Button -->
+      <div class="mt-8">
+        <a href="/services" class="flex items-center justify-center w-full px-4 py-3 text-lg font-semibold text-white bg-blue-600 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 transition-all duration-200 shadow-lg">
+          <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+          </svg>
+          Our Services
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div id="searchModal" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black bg-opacity-50" id="searchModalBackdrop"></div>
+    <div class="relative z-10 flex items-center justify-center min-h-screen p-4">
+      <div class="w-full max-w-2xl bg-white dark:bg-gray-800 rounded-lg shadow-xl">
+        <div class="p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Search Posts</h3>
+            <button 
+              id="searchModalClose" 
+              aria-label="Close search modal"
+              class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700"
+            >
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+          <form action="/search" method="GET" class="space-y-4">
+            <div class="relative">
+              <input 
+                type="text" 
+                name="q" 
+                placeholder="Search articles..." 
+                class="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+                autofocus
+              />
+              <button 
+                type="submit" 
+                class="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+              </button>
+            </div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">
+              Press <kbd class="px-2 py-1 bg-gray-100 dark:bg-gray-700 rounded">Esc</kbd> to close
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Theme toggle functionality with consistent localStorage keys
+  function initThemeToggle() {
+    const themeToggle = document.getElementById('themeToggle');
+    const mobileThemeToggle = document.getElementById('mobileThemeToggle');
+    const themeToggleDarkIcon = document.getElementById('themeToggleDarkIcon');
+    const themeToggleLightIcon = document.getElementById('themeToggleLightIcon');
+    const mobileThemeToggleDarkIcon = document.getElementById('mobileThemeToggleDarkIcon');
+    const mobileThemeToggleLightIcon = document.getElementById('mobileThemeToggleLightIcon');
+
+    // Initialize theme on page load
+    function initializeTheme() {
+      // Check both localStorage keys for compatibility
+      const savedTheme = localStorage.getItem('color-theme') || localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        themeToggleLightIcon?.classList.remove('hidden');
+        themeToggleDarkIcon?.classList.add('hidden');
+        mobileThemeToggleLightIcon?.classList.remove('hidden');
+        mobileThemeToggleDarkIcon?.classList.add('hidden');
+      } else {
+        document.documentElement.classList.remove('dark');
+        themeToggleDarkIcon?.classList.remove('hidden');
+        themeToggleLightIcon?.classList.add('hidden');
+        mobileThemeToggleDarkIcon?.classList.remove('hidden');
+        mobileThemeToggleLightIcon?.classList.add('hidden');
+      }
+    }
+
+    // Initialize theme when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initializeTheme);
+    } else {
+      initializeTheme();
+    }
+
+    // Toggle theme function
+    function toggleTheme() {
+      // Toggle icons
+      themeToggleDarkIcon?.classList.toggle('hidden');
+      themeToggleLightIcon?.classList.toggle('hidden');
+      mobileThemeToggleDarkIcon?.classList.toggle('hidden');
+      mobileThemeToggleLightIcon?.classList.toggle('hidden');
+
+      // Toggle theme
+      const isDark = document.documentElement.classList.contains('dark');
+      if (isDark) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('color-theme', 'light');
+        localStorage.setItem('theme', 'light'); // For compatibility
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('color-theme', 'dark');
+        localStorage.setItem('theme', 'dark'); // For compatibility
+      }
+    }
+
+    // Add event listeners
+    themeToggle?.addEventListener('click', toggleTheme);
+    mobileThemeToggle?.addEventListener('click', toggleTheme);
+  }
+
+  // Initialize theme toggle
+  initThemeToggle();
+
+  // Sticky navbar functionality
+  const navbar = document.getElementById('mainNavbar');
+  if (navbar) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navbar.setAttribute('data-sticky', 'true');
+      } else {
+        navbar.setAttribute('data-sticky', 'false');
+      }
+    });
+  }
+
+  // Mobile menu functionality
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenuClose = document.getElementById('mobile-menu-close');
+  const mobileMenuFull = document.getElementById('mobile-menu-full');
+  const body = document.body;
+
+  function openMobileMenu() {
+    mobileMenuFull?.classList.remove('hidden');
+    mobileMenuButton?.setAttribute('aria-expanded', 'true');
+    body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileMenuFull?.classList.add('hidden');
+    mobileMenuButton?.setAttribute('aria-expanded', 'false');
+    body.style.overflow = '';
+  }
+
+  mobileMenuButton?.addEventListener('click', openMobileMenu);
+  mobileMenuClose?.addEventListener('click', closeMobileMenu);
+
+  // Close menu when clicking on a link (but not accordion toggles)
+  const mobileMenuLinks = mobileMenuFull?.querySelectorAll('a');
+  mobileMenuLinks?.forEach(link => {
+    link.addEventListener('click', closeMobileMenu);
+  });
+
+  // Close menu when pressing Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !mobileMenuFull?.classList.contains('hidden')) {
+      closeMobileMenu();
+    }
+  });
+
+  // Mobile accordion functionality
+  function initMobileAccordion() {
+    const accordionToggles = document.querySelectorAll('.mobile-accordion-toggle');
+    
+    accordionToggles.forEach(toggle => {
+      toggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const targetId = this.getAttribute('data-accordion-target');
+        const target = document.getElementById(targetId);
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        const arrow = this.querySelector('svg:last-child');
+        
+        if (target) {
+          // Toggle the content
+          if (isExpanded) {
+            target.classList.add('hidden');
+            this.setAttribute('aria-expanded', 'false');
+            arrow?.classList.remove('rotate-180');
+          } else {
+            target.classList.remove('hidden');
+            this.setAttribute('aria-expanded', 'true');
+            arrow?.classList.add('rotate-180');
+          }
+        }
+      });
+    });
+  }
+
+  // Initialize mobile accordion
+  initMobileAccordion();
+
+  // Search modal functionality
+  const searchToggle = document.getElementById('searchToggle');
+  const mobileSearchToggle = document.getElementById('mobileSearchToggle');
+  const searchModal = document.getElementById('searchModal');
+  const searchModalClose = document.getElementById('searchModalClose');
+  const searchModalBackdrop = document.getElementById('searchModalBackdrop');
+
+  function openSearchModal() {
+    searchModal?.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+    // Focus on search input
+    setTimeout(() => {
+      const searchInput = searchModal?.querySelector('input[name="q"]') as HTMLInputElement;
+      searchInput?.focus();
+    }, 100);
+  }
+
+  function closeSearchModal() {
+    searchModal?.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  searchToggle?.addEventListener('click', openSearchModal);
+  mobileSearchToggle?.addEventListener('click', () => {
+    closeMobileMenu();
+    openSearchModal();
+  });
+  searchModalClose?.addEventListener('click', closeSearchModal);
+  searchModalBackdrop?.addEventListener('click', closeSearchModal);
+
+  // Close search modal with Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !searchModal?.classList.contains('hidden')) {
+      closeSearchModal();
+    }
+  });
+</script> 

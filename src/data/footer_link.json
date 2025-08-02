@@ -1,0 +1,156 @@
+{
+  "footer_sections": [
+    {
+      "title": "Company",
+      "links": [
+        {
+          "title": "About",
+          "url": "/about"
+        },
+        {
+          "title": "Careers",
+          "url": "/careers"
+        },
+        {
+          "title": "Brand Center",
+          "url": "/brand"
+        },
+        {
+          "title": "Blog",
+          "url": "/blog"
+        }
+      ]
+    },
+    {
+      "title": "Help center",
+      "links": [
+        {
+          "title": "Discord Server",
+          "url": "#"
+        },
+        {
+          "title": "Twitter",
+          "url": "#"
+        },
+        {
+          "title": "Facebook",
+          "url": "#"
+        },
+        {
+          "title": "Contact Us",
+          "url": "/contact"
+        }
+      ]
+    },
+    {
+      "title": "Legal",
+      "links": [
+        {
+          "title": "Privacy Policy",
+          "url": "/privacy"
+        },
+        {
+          "title": "Licensing",
+          "url": "/licensing"
+        },
+        {
+          "title": "Terms",
+          "url": "/terms"
+        }
+      ]
+    },
+    {
+      "title": "Services",
+      "links": [
+        {
+          "title": "Web Development",
+          "url": "/services/web-development"
+        },
+        {
+          "title": "Mobile Apps",
+          "url": "/services/mobile-app"
+        },
+        {
+          "title": "E-Commerce",
+          "url": "/services/ecommerce"
+        },
+        {
+          "title": "SEO Services",
+          "url": "/services/seo"
+        }
+      ]
+    },
+    {
+      "title": "Download",
+      "links": [
+        {
+          "title": "iOS",
+          "url": "#"
+        },
+        {
+          "title": "Android",
+          "url": "#"
+        },
+        {
+          "title": "Windows",
+          "url": "#"
+        },
+        {
+          "title": "MacOS",
+          "url": "#"
+        }
+      ]
+    }
+  ],
+  "social_links": [
+    {
+      "title": "Facebook",
+      "url": "#",
+      "icon": "facebook"
+    },
+    {
+      "title": "Instagram",
+      "url": "#",
+      "icon": "instagram"
+    },
+    {
+      "title": "Twitter",
+      "url": "#",
+      "icon": "twitter"
+    },
+    {
+      "title": "GitHub",
+      "url": "#",
+      "icon": "github"
+    },
+    {
+      "title": "Dribbble",
+      "url": "#",
+      "icon": "dribbble"
+    }
+  ],
+  "cta": {
+    "title": "Hubungi Kami",
+    "description": "Hubungi kami untuk mendapatkan informasi lebih lanjut tentang jasa pembuatan website di Bekasi.",
+    "buttons": [
+      {
+        "title": "WhatsApp",
+        "url": "https://wa.me/085799520350",
+        "type": "whatsapp",
+        "icon": "whatsapp"
+      },
+      {
+        "title": "Pelajari Lebih Lanjut",
+        "url": "/contact",
+        "type": "primary",
+        "icon": "info"
+      }
+    ]
+  },
+  "copyright": {
+    "text": "© 2021-2024",
+    "brand_name": "Kotacom",
+    "brand_url": "/",
+    "rights_text": "All Rights Reserved."
+  }
+} 

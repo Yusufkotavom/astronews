@@ -1,0 +1,366 @@
+---
+// Blog Homepage component
+import { getCollection } from 'astro:content';
+
+// Get all blog posts
+const posts = await getCollection('post');
+console.log('🔍 Debug: Found', posts.length, 'blog posts');
+
+// Debug: Log each post
+posts.forEach((post, index) => {
+  console.log(`📝 Post ${index + 1}:`, post.slug, '-', post.data.title);
+});
+
+const sortedPosts = posts.sort((a, b) => {
+  const dateA = a.data.publishDate || new Date(a.data.date || '');
+  const dateB = b.data.publishDate || new Date(b.data.date || '');
+  return new Date(dateB).getTime() - new Date(dateA).getTime();
+});
+
+// Get unique categories and tags
+const categories = [...new Set(posts.map(post => post.data.category))];
+const allTags = posts.flatMap(post => post.data.tags || []);
+const tags = [...new Set(allTags)];
+
+// Get featured posts
+const featuredPosts = sortedPosts.filter(post => post.data.featured).slice(0, 3);
+console.log('⭐ Featured posts:', featuredPosts.length);
+
+// Get latest posts (excluding featured ones)
+const latestPosts = sortedPosts.filter(post => !post.data.featured).slice(0, 6);
+console.log('📰 Latest posts:', latestPosts.length);
+
+// Function to get category color
+function getCategoryColor(category: string) {
+  const colors = {
+    'Technology': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300',
+    'Marketing': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300',
+    'Programming': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-300',
+    'Design': 'bg-pink-100 text-pink-800 dark:bg-pink-900 dark:text-pink-300',
+    'Business': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300'
+  };
+  return colors[category as keyof typeof colors] || 'bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300';
+}
+
+// Function to format date
+function formatDate(date: Date | string) {
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  return dateObj.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
+---
+
+<section class="border-t border-b border-gray-100 bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+  <div class="max-w-screen-xl px-4 py-8 mx-auto sm:py-16 lg:py-24 pt-20 sm:pt-24 lg:pt-32">
+    {posts.length === 0 ? (
+      <div class="text-center py-12">
+        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">No Blog Posts Found</h2>
+        <p class="text-gray-600 dark:text-gray-400 mb-4">Debug Info: Content collection may not be loading properly on Vercel.</p>
+        <div class="bg-yellow-100 dark:bg-yellow-900 p-4 rounded-lg">
+          <p class="text-yellow-800 dark:text-yellow-200">
+            <strong>Debug:</strong> Found {posts.length} posts in collection
+          </p>
+        </div>
+      </div>
+    ) : (
+      <div class="grid grid-cols-1 gap-8 lg:grid-cols-2 lg:gap-20">
+        {featuredPosts.length > 0 && (
+          <article>
+            <a href={`/blog/${featuredPosts[0].slug}`} title={featuredPosts[0].data.title}>
+              {featuredPosts[0].data.image ? (
+                <img class="object-cover w-full rounded-lg" src={featuredPosts[0].data.image} alt={featuredPosts[0].data.title}>
+              ) : (
+                <div class="w-full h-64 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                  <svg 
+                    class="w-full h-full" 
+                    viewBox="0 0 800 400" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- Background -->
+                    <rect width="800" height="400" fill="#f3f4f6" class="dark:fill-gray-700"/>
+                    
+                    <!-- Border -->
+                    <rect x="50" y="50" width="700" height="300" fill="none" stroke="#d1d5db" stroke-width="2" class="dark:stroke-gray-600"/>
+                    
+                    <!-- Title -->
+                    <text x="400" y="180" text-anchor="middle" class="text-xl font-bold fill-gray-700 dark:fill-gray-300" style="font-family: system-ui, -apple-system, sans-serif; font-size: 20px; font-weight: bold;">
+                      {featuredPosts[0].data.title}
+                    </text>
+                    
+                    <!-- URL -->
+                    <text x="400" y="220" text-anchor="middle" class="text-sm fill-gray-500 dark:fill-gray-400" style="font-family: system-ui, -apple-system, sans-serif; font-size: 14px;">
+                      kotacom.id
+                    </text>
+                    
+                    <!-- Decorative elements -->
+                    <circle cx="200" cy="120" r="15" fill="#e5e7eb" class="dark:fill-gray-600"/>
+                    <circle cx="600" cy="280" r="12" fill="#e5e7eb" class="dark:fill-gray-600"/>
+                    <rect x="150" y="320" width="80" height="15" fill="#e5e7eb" class="dark:fill-gray-600"/>
+                    <rect x="550" y="80" width="60" height="12" fill="#e5e7eb" class="dark:fill-gray-600"/>
+                  </svg>
+                </div>
+              )}
+            </a>
+
+            <div class="mt-5 space-y-4">
+              <a href={`/blog/category/${featuredPosts[0].data.category.toLowerCase()}`} class={`bg-blue-100 text-blue-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors ${getCategoryColor(featuredPosts[0].data.category)}`}>
+                <svg aria-hidden="true" class="w-3 h-3 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+                {featuredPosts[0].data.category}
+              </a>
+
+              <h2 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white hover:underline">
+                <a href={`/blog/${featuredPosts[0].slug}`} title={featuredPosts[0].data.title}>
+                  {featuredPosts[0].data.title}
+                </a>
+              </h2>
+
+              <div class="flex items-center gap-3">
+                <img class="w-8 h-8 rounded-full" src="/assets/images/author-image.png" alt={featuredPosts[0].data.author}>
+                <div class="text-lg font-medium leading-tight text-gray-900 dark:text-white">
+                  <a href={`/blog/author/${featuredPosts[0].data.author.toLowerCase().replace(/\s+/g, '-')}`} class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{featuredPosts[0].data.author}</a>
+                  <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                    Posted on {formatDate(featuredPosts[0].data.date)}
+                  </div>
+                </div>
+              </div>
+
+              <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+                {featuredPosts[0].data.description}
+              </p>
+
+              <a href={`/blog/${featuredPosts[0].slug}`} title={featuredPosts[0].data.title}
+                class="inline-flex items-center text-base font-semibold leading-tight text-primary-700 hover:underline dark:text-primary-500">
+                Read more
+                <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                </svg>
+              </a>
+            </div>
+          </article>
+        )}
+
+        <div class="space-y-8">
+          {featuredPosts.slice(1).map((post) => (
+            <article>
+              <div class="space-y-4">
+                <a href={`/blog/category/${post.data.category.toLowerCase()}`} class={`text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-sm hover:bg-opacity-80 transition-colors ${getCategoryColor(post.data.category)}`}>
+                  <svg aria-hidden="true" class="w-3 h-3 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clip-rule="evenodd" />
+                  </svg>
+                  {post.data.category}
+                </a>
+
+                <h2 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white hover:underline">
+                  <a href={`/blog/${post.slug}`} title={post.data.title}>
+                    {post.data.title}
+                  </a>
+                </h2>
+
+                <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+                  {post.data.description}
+                </p>
+
+                <a href={`/blog/${post.slug}`} title={post.data.title}
+                  class="inline-flex items-center text-base font-semibold leading-tight text-primary-700 hover:underline dark:text-primary-500">
+                  Read more
+                  <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    )}
+  </div>
+</section>
+
+<section class="bg-white border-b border-gray-100 dark:bg-gray-900 dark:border-gray-800">
+  <div class="max-w-screen-xl px-4 py-4 mx-auto">
+    <div class="sm:hidden">
+      <label for="category" class="sr-only">Select a category</label>
+      <select id="category" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+        <option>Select a category</option>
+        <option value="" selected>All categories</option>
+        {categories.map((category) => (
+          <option value={category}>{category}</option>
+        ))}
+      </select>
+    </div>
+
+    <div class="hidden sm:block">
+      <nav class="flex flex-wrap items-center gap-3">
+        <a href="/blog" title="All categories" class="px-5 py-2 text-base font-medium border rounded-full text-primary-700 border-primary-700 hover:bg-primary-50 dark:text-primary-500 dark:border-primary-500 dark:hover:bg-primary-900">
+          All categories
+        </a>
+
+        {categories.map((category) => (
+          <a href={`/blog/category/${category.toLowerCase()}`} title={category}
+            class="px-5 py-2 text-base font-medium text-gray-900 border border-transparent rounded-full dark:text-white dark:hover:bg-gray-700 hover:bg-gray-100">
+            {category}
+          </a>
+        ))}
+      </nav>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white dark:bg-gray-900">
+  <div class="max-w-screen-xl px-4 py-8 mx-auto sm:pb-16">
+    <div class="flex flex-col gap-12 lg:gap-20 md:flex-row md:items-start">
+      <div class="flex-1 min-w-0">
+        <div class="border-b border-gray-100 dark:border-gray-800">
+          <nav class="flex items-center gap-8 pb-4 -mb-px">
+            <a href="/blog" title="Latest" class="text-base font-medium text-primary-700 dark:text-primary-500">
+              Latest
+            </a>
+            <a href="/blog/featured" title="Featured" class="text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+              Featured
+            </a>
+            <a href="/blog/popular" title="Popular" class="text-base font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white">
+              Popular
+            </a>
+          </nav>
+        </div>
+
+        <div class="mt-8 space-y-12 sm:mt-12">
+          {latestPosts.map((post) => (
+            <div class="flex flex-col items-start gap-8 xl:flex-row">
+              <div class="relative aspect-[16/9] sm:aspect-[2/1] w-full xl:aspect-[4/3] xl:w-80 lg:shrink-0">
+                {post.data.image ? (
+                  <img src={post.data.image} alt={post.data.title}
+                    class="absolute inset-0 object-cover w-full h-full bg-gray-200 rounded-lg">
+                ) : (
+                  <div class="absolute inset-0 bg-gray-100 dark:bg-gray-800 rounded-lg flex items-center justify-center">
+                    <svg 
+                      class="w-full h-full" 
+                      viewBox="0 0 800 400" 
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <!-- Background -->
+                      <rect width="800" height="400" fill="#f3f4f6" class="dark:fill-gray-700"/>
+                      
+                      <!-- Border -->
+                      <rect x="50" y="50" width="700" height="300" fill="none" stroke="#d1d5db" stroke-width="2" class="dark:stroke-gray-600"/>
+                      
+                      <!-- Title -->
+                      <text x="400" y="180" text-anchor="middle" class="text-xl font-bold fill-gray-700 dark:fill-gray-300" style="font-family: system-ui, -apple-system, sans-serif; font-size: 18px; font-weight: bold;">
+                        {post.data.title}
+                      </text>
+                      
+                      <!-- URL -->
+                      <text x="400" y="220" text-anchor="middle" class="text-sm fill-gray-500 dark:fill-gray-400" style="font-family: system-ui, -apple-system, sans-serif; font-size: 12px;">
+                        kotacom.id
+                      </text>
+                      
+                      <!-- Decorative elements -->
+                      <circle cx="200" cy="120" r="12" fill="#e5e7eb" class="dark:fill-gray-600"/>
+                      <circle cx="600" cy="280" r="10" fill="#e5e7eb" class="dark:fill-gray-600"/>
+                      <rect x="150" y="320" width="60" height="12" fill="#e5e7eb" class="dark:fill-gray-600"/>
+                      <rect x="550" y="80" width="50" height="10" fill="#e5e7eb" class="dark:fill-gray-600"/>
+                    </svg>
+                  </div>
+                )}
+              </div>
+
+              <div class="space-y-4">
+                <a href={`/blog/category/${post.data.category.toLowerCase()}`} class={`text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded-sm hover:bg-opacity-80 transition-colors ${getCategoryColor(post.data.category)}`}>
+                  <svg aria-hidden="true" class="w-3 h-3 mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                  </svg>
+                  {post.data.category}
+                </a>
+
+                <h2 class="text-2xl font-bold leading-tight tracking-tight text-gray-900 dark:text-white">
+                  <a href={`/blog/${post.slug}`} class="hover:underline" title={post.data.title}>
+                    {post.data.title}
+                  </a>
+                </h2>
+
+                <div class="flex items-center gap-3">
+                  <img class="w-8 h-8 rounded-full" src="/assets/images/author-image.png" alt={post.data.author}>
+                  <div class="text-lg font-medium leading-tight text-gray-900 dark:text-white">
+                    <a href={`/blog/author/${post.data.author.toLowerCase().replace(/\s+/g, '-')}`} class="hover:text-primary-600 dark:hover:text-primary-400 transition-colors">{post.data.author}</a>
+                    <div class="text-sm font-normal text-gray-500 dark:text-gray-400">
+                      Posted on {formatDate(post.data.date)}
+                    </div>
+                  </div>
+                </div>
+
+                <p class="text-base font-normal text-gray-500 dark:text-gray-400">
+                  {post.data.description}
+                </p>
+
+                <div class="flex items-center justify-between gap-6">
+                  <div class="flex items-center gap-4">
+                    <div class="flex items-center gap-2">
+                      {post.data.tags.slice(0, 3).map((tag) => (
+                        <span class="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded dark:bg-gray-700 dark:text-gray-300">
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <a href={`/blog/${post.slug}`} title={post.data.title}
+                    class="inline-flex items-center text-base font-semibold leading-tight text-primary-700 hover:underline dark:text-primary-500">
+                    Read more
+                    <svg aria-hidden="true" class="w-4 h-4 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="w-full max-w-xs space-y-8 shrink-0 md:top-20 md:sticky">
+        <div class="rounded-lg bg-gray-50 dark:bg-gray-800">
+          <div class="p-5 space-y-5">
+            <form class="flex items-center">
+              <label for="simple-search" class="sr-only">Search</label>
+              <div class="relative w-full">
+                <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                  <svg aria-hidden="true" class="w-5 h-5 text-gray-500 dark:text-gray-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                  </svg>
+                </div>
+                <input type="text" id="simple-search" class="bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search" required>
+              </div>
+            </form>
+
+            <h5 class="text-sm font-bold tracking-wide text-gray-900 uppercase dark:text-white">
+              Categories
+            </h5>
+            <div class="flex flex-wrap items-center gap-4">
+              {categories.map((category) => (
+                <a href={`/blog/category/${category.toLowerCase()}`} class="px-3 py-0.5 text-sm font-medium text-blue-800 bg-blue-100 rounded-md dark:bg-blue-900 dark:text-blue-300 hover:bg-blue-200 dark:hover:bg-blue-800">
+                  {category}
+                </a>
+              ))}
+            </div>
+
+            <h5 class="text-sm font-bold tracking-wide text-gray-900 uppercase dark:text-white">
+              Popular Tags
+            </h5>
+            <div class="flex flex-wrap items-center gap-4">
+              {tags.slice(0, 10).map((tag) => (
+                <a href={`/blog/tag/${tag}`} class="px-3 py-0.5 text-sm font-medium text-gray-800 bg-gray-100 rounded-md dark:bg-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600">
+                  #{tag}
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
