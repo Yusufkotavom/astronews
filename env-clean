@@ -1,0 +1,65 @@
+# =============================================================================
+# WORDPRESS + CLOUDINARY MIGRATION CONFIGURATION
+# =============================================================================
+# COPY THIS ENTIRE CONTENT TO YOUR .env FILE
+# REPLACE YOUR CURRENT .env CONTENT WITH THIS
+
+# =============================================================================
+# WORDPRESS CONFIGURATION (REQUIRED)
+# =============================================================================
+
+WORDPRESS_SITE_URL=https://www.kotacom.id
+
+# WordPress API Settings
+WORDPRESS_POSTS_PER_PAGE=100
+WORDPRESS_MAX_POSTS=10000
+
+# =============================================================================
+# IMAGE DOWNLOAD CONFIGURATION (FOR CLOUDINARY MIGRATION)
+# =============================================================================
+
+# Download ALL images from WordPress (required for Cloudinary migration)
+DOWNLOAD_IMAGES=true
+DOWNLOAD_FEATURED_IMAGES_ONLY=false
+DOWNLOAD_CONTENT_IMAGES=true
+KEEP_ORIGINAL_URLS=false
+
+# Image Quality and Format
+IMAGE_QUALITY=85
+IMAGE_FORMAT=webp
+
+# =============================================================================
+# CLOUDINARY CONFIGURATION (YOUR CREDENTIALS)
+# =============================================================================
+
+# Your Cloudinary Account Settings
+CLOUDINARY_CLOUD_NAME=dezryhhki
+CLOUDINARY_API_KEY=313786613192279
+CLOUDINARY_API_SECRET=MS8d8zz0BSXtStDauEKwgo
+
+# Cloudinary Upload Settings
+CLOUDINARY_FOLDER=kotacom
+CLOUDINARY_TRANSFORMATION=f_auto,q_auto
+
+# Migration Strategy: 'upload' (download from WordPress and upload to Cloudinary)
+CLOUDINARY_STRATEGY=upload
+
+# URL Transformation Settings
+TRANSFORM_URLS=true
+BACKUP_ORIGINAL=true
+
+# =============================================================================
+# DEVELOPMENT SETTINGS
+# =============================================================================
+
+NODE_ENV=development
+PORT=4321
+HOST=0.0.0.0
+
+# =============================================================================
+# SEO SETTINGS
+# =============================================================================
+
+SITE_TITLE=Kotacom - Jasa IT & Percetakan
+SITE_DESCRIPTION=Jasa IT, percetakan, dan layanan teknologi terpercaya
+SITE_URL=https://kotacom.id 
